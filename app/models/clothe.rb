@@ -1,5 +1,6 @@
 class Clothe < ApplicationRecord
   # belongs_to :users
+  has_many_attached :photos
   has_many :transactions
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 20 }
