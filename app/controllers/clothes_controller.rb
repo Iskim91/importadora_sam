@@ -12,11 +12,12 @@ class ClothesController < ApplicationController
 
   def new
     @clothe = Clothe.new
+    authorize @clothe
   end
 
   def create
     @clothe = Clothe.new(clothe_params)
-    @clothe.user = current_user
+    authorize @clothe
     if @clothe.save
       redirect_to clothe_path(@clothe)
     else
@@ -25,10 +26,17 @@ class ClothesController < ApplicationController
   end
 
   def edit
+    authorize @clothe
   end
 
   def update
     @clothe.update(clothe_params)
+    authorize @clothe
+    if @clothe.save
+      redirect_to clothe_path(@clothe)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,7 +46,7 @@ class ClothesController < ApplicationController
   private
 
   def clothe_params
-    params.require(:clothe).permit(:name, :category, :description, :price, :photo)
+    params.require(:clothe).permit(:name, :category, :description, :price, photos: [])
   end
 
   def find_clothe

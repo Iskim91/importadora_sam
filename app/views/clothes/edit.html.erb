@@ -1,0 +1,9 @@
+<%= simple_form_for(@clothe) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :category, collection: Clothe::CATEGORY %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit%>
+
+<% end %>

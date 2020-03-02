@@ -12,6 +12,10 @@ class ClothePolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    user.admin
+  end
+
   def create?
     user.admin
   end
