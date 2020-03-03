@@ -1,0 +1,26 @@
+.c-cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 28px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.c-card{
+  position: relative;
+  height: 70vh;
+  width: 100%;
+}
+
+.card-img{
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3)
+}
+.card-description{
+  display: block;
+}
