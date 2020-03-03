@@ -11,4 +11,12 @@ class Clothe < ApplicationRecord
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :size, inclusion: { in: SIZE }
   validates :gender, inclusion: { in: GENDER }
+
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_gender_and_category,
+    against: [ :name, :gender, :category ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

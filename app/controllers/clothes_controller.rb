@@ -4,7 +4,8 @@ class ClothesController < ApplicationController
   before_action :find_clothe, only: %i[show edit update destroy]
 
   def index
-    @clothes = policy_scope(Clothe)
+    result = Clothe
+    @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query])
   end
 
   def show

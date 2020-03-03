@@ -1,6 +1,18 @@
-<% @clothes.each do |clothe| %>
-  <%= clothe.name %> <br>
-  <%= clothe.description %> <br>
-  <%= clothe.category %> <br>
-  <%= clothe.price %>
-<% end %>
+<div class="main-container">
+  <div class="c-cards">
+    <% @clothes.each do |clothe| %>
+        <div class="c-card">
+          <% clothe.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: 'card-img' %>
+          <% end %>
+          <div class="card-title">
+            <%= clothe.name %>
+          </div>
+          <div class="card-description">
+            <p><%= clothe.description.capitalize %></p>
+            <p>$<%= clothe.price %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
