@@ -17,7 +17,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'cloudinary'
 gem 'pg_search', '~> 2.3.0'
-
+gem 'money-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do

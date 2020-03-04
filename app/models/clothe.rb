@@ -9,7 +9,7 @@ class Clothe < ApplicationRecord
   GENDER = %w[Men Women Unisex]
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :gender, inclusion: { in: GENDER }
-
+  monetize :price_cents
 
   include PgSearch::Model
   pg_search_scope :search_by_name_gender_and_category,

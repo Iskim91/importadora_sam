@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_192003) do
+ActiveRecord::Schema.define(version: 2020_03_04_210801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,13 @@ ActiveRecord::Schema.define(version: 2020_03_03_192003) do
 
   create_table "clothes", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
     t.text "description"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "gender"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
   end
 
   create_table "transactions", force: :cascade do |t|

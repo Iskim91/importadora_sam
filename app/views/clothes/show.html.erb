@@ -7,7 +7,7 @@
       <%= @clothe.name %> <br>
       <%= @clothe.description %> <br>
       <%= @clothe.category %> <br>
-      <%= @clothe.price %>
+      <%= humanized_money_with_symbol(@clothe.price) %>
 
       <%= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>
         <%= f.input :size, collection: Transaction::SIZE %>

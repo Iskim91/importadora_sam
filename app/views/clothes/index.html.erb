@@ -11,7 +11,7 @@
           </div>
           <div class="card-description">
             <p><%= clothe.description.capitalize %></p>
-            <p>$<%= clothe.price %></p>
+            <p><%= humanized_money_with_symbol(clothe.price) %></p>
           </div>
         </div>
       <% end %>

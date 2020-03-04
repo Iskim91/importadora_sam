@@ -8,9 +8,9 @@
 require "open-uri"
 
 puts "Destroying all Clothes"
+Transaction.destroy_all
 
 Clothe.destroy_all
-
 puts "Creating Clothes"
 file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3456&q=80")
 10.times do
@@ -19,7 +19,7 @@ file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ix
     description: "this apple is very good",
     category: "Shirt",
     gender: "Men",
-    price: 20
+    price_cents: 950
     )
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
 end
