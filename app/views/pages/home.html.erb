@@ -3,6 +3,7 @@
 <div class="main-container">
   <div class="c-cards">
     <% @clothes.each do |clothe| %>
+      <%= link_to clothe_path(clothe) do  %>
         <div class="c-card">
           <% clothe.photos.each do |photo| %>
             <%= cl_image_tag photo.key, class: 'card-img' %>
@@ -16,5 +17,6 @@
           </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>

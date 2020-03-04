@@ -9,6 +9,7 @@ class ClothesController < ApplicationController
   end
 
   def show
+    @transaction = Transaction.new
   end
 
   def new

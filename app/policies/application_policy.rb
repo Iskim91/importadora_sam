@@ -34,6 +34,9 @@ class ApplicationPolicy
     false
   end
 
+  def confirmation?
+    false
+  end
   class Scope
     attr_reader :user, :scope
 

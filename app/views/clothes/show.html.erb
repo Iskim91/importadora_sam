@@ -1,7 +1,20 @@
-<%= @clothe.name %> <br>
-<%= @clothe.description %> <br>
-<%= @clothe.category %> <br>
-<%= @clothe.price %>
-<% @clothe.photos.each do |photo| %>
-  <%= cl_image_tag photo.key %>
-<% end %>
+<div class="main-container">
+  <div class="transation-body">
+    <% @clothe.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class: "show-img" %>
+    <% end %>
+    <div class="transaction-info">
+      <%= @clothe.name %> <br>
+      <%= @clothe.description %> <br>
+      <%= @clothe.category %> <br>
+      <%= @clothe.price %>
+
+      <%= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>
+        <%= f.input :size, collection: Transaction::SIZE %>
+        <%= f.input :quantity %>
+        <%= f.input :color %>
+        <%= f.submit :Continue%>
+      <% end %>
+    </div>
+  </div>
+</div>
