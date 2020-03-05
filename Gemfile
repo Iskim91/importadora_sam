@@ -20,6 +20,7 @@ gem 'pg_search', '~> 2.3.0'
 gem 'money-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 gem "stripe"
+gem 'stripe_event'
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
