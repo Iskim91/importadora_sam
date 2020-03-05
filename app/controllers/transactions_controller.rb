@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
   def show
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
     authorize @transaction
   end
 
@@ -9,12 +9,25 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
     @transaction.clothe = @clothe
+    @transaction.amount = @clothe.price
+    @transaction.clothe_sku = @clothe.sku
+    @transaction.total_cents = @transaction.quantity * @clothe.price_cents
+    @transaction.save
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @clothe.sku,
+        # images: @clothe.photos.first.key,
+        amount: @clothe.price_cents,
+        currency: 'usd',
+        quantity: @transaction.quantity
+      }],
+      success_url: clothe_transaction_url(@clothe, @transaction),
+      cancel_url: clothe_transaction_url(@clothe, @transaction)
+    )
+    @transaction.update(checkout_session_id: session.id)
+    redirect_to new_clothe_transaction_payment_path(@clothe, @transaction)
     authorize @transaction
-    if @transaction.save
-      redirect_to clothe_path(@clothe)
-    else
-      render "clothes/show"
-    end
   end
 
   def update
@@ -25,12 +38,11 @@ class TransactionsController < ApplicationController
     @clothe = Clothe.find(params[:clothe_id])
     @transaction = Transaction.new(transaction_params)
     authorize @transaction
-
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:quantity, :size, :color, :clothe_id)
+    params.require(:transaction).permit(:quantity, :color, :size)
   end
 end

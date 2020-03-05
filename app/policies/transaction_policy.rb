@@ -14,11 +14,11 @@ class TransactionPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == current_user
+    user == record.user
   end
 
   def update?
-    record.user == current_user
+    user == record.user
   end
 
   def edit?

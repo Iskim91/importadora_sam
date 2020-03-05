@@ -19,7 +19,8 @@ file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ix
     description: "this apple is very good",
     category: "Shirt",
     gender: "Men",
-    price_cents: 950
+    price_cents: 950,
+    sku: "mountain_shirt"
     )
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
 end

@@ -5,4 +5,6 @@ class Transaction < ApplicationRecord
   validates :quantity, presence: true
   validates :color, presence: true
   validates :size, presence: true, inclusion: { in: SIZE }
+  monetize :amount_cents
+  monetize :total_cents
 end

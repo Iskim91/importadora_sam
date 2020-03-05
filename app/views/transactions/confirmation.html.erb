@@ -1,1 +1,4 @@
-<%= render "form" %>
+<div class="d-flex"><% @clothe.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, class: "show-img" %>
+  <% end %>
+  <%= render "form" %></div>
