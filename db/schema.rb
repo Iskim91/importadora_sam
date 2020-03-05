@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_210801) do
+ActiveRecord::Schema.define(version: 2020_03_05_121355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_210801) do
     t.string "gender"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "USD", null: false
+    t.string "sku"
   end
 
   create_table "transactions", force: :cascade do |t|
