@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
     else
       basket = Basket.find_by(status: "pending", user: current_user)
     end
-    @clothe = Clothe.find(params.require(:transaction)[:clothe_id])
+    @clothe = Clothe.find(params[:clothe_id])
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
     @transaction.clothe = @clothe
