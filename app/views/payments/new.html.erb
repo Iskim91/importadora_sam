@@ -1,12 +1,15 @@
 <div class="container">
   <div class="row py-4">
     <div class="col-md-3">
-      <% @transaction.clothe.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: '100%' %></div>
-      <% end %>
+      <%# @transaction.clothe.photos.each do |photo| %>
+        <%#= cl_image_tag photo.key, width: '100%' %></div>
+      <%# end %>
     <div class="col">
       <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @transaction.clothe.name %></strong> for <strong><%= humanized_money_with_symbol @transaction.total %></strong></p>
+      <% @basket.transactions.each do |transaction| %>
+        <strong><p>Purchase of </strong><%= transaction.clothe.name %> for <%= humanized_money_with_symbol transaction.total %></p>
+      <% end %>
+      <p> for a total of<strong> <%= humanized_money_with_symbol @basket.total %></strong></p>
       <button id="pay" class="btn btn-primary">Pay</button>
       <!-- # Commented for the lecture, remove comments. -->
       <script src="https://js.stripe.com/v3/"></script>
@@ -15,7 +18,7 @@
         paymentButton.addEventListener('click', () => {
           const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
           stripe.redirectToCheckout({
-            sessionId: '<%= @transaction.checkout_session_id %>'
+            sessionId: '<%= @basket.checkout_session_id %>'
           });
         });
       </script>

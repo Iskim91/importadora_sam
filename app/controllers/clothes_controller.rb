@@ -4,11 +4,15 @@ class ClothesController < ApplicationController
   before_action :find_clothe, only: %i[show edit update destroy]
 
   def index
-    result = Clothe
     @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query])
   end
 
   def show
+    if Basket.find_by(status: "pending").nil?
+      @basket = Basket.create(user: current_user)
+    else
+      @basket = Basket.find_by(status: "pending", user: current_user)
+    end
     @transaction = Transaction.new
   end
 

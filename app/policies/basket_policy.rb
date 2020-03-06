@@ -1,29 +1,22 @@
-class TransactionPolicy < ApplicationPolicy
+class BasketPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create?
+  def new?
     user == record.user
   end
 
   def index?
-    true
+    user == record.user
   end
 
   def show?
     user == record.user
   end
-
-  def update?
+  def payment?
     user == record.user
   end
-
-  def edit?
-    update?
-  end
-
-
 end

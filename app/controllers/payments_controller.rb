@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   def new
-    @transaction = current_user.transactions.where(status: 'pending').find(params[:order_id], params[:transaction_id])
-    authorize @transaction
+    @basket = current_user.baskets.where(status: 'pending').find(params[:basket_id])
+    authorize @basket
   end
 end

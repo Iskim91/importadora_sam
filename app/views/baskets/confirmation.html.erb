@@ -1,0 +1,10 @@
+<div class="main-container">
+  <% @basket.transactions.each do |transaction| %>
+    <div class="d-flex">
+      <% transaction.clothe.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "show-img" %>
+      <% end %>
+      <%= render "transactions/form" %>
+    </div>
+  <% end %>
+</div>

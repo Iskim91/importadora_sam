@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_131754) do
+ActiveRecord::Schema.define(version: 2020_03_06_173120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_03_05_131754) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "baskets", force: :cascade do |t|
+    t.string "status", default: "pending"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.integer "total_cents", default: 0, null: false
+    t.index ["user_id"], name: "index_baskets_on_user_id"
+  end
+
   create_table "clothes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -48,8 +59,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_131754) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "clothe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "size"
@@ -60,6 +69,10 @@ ActiveRecord::Schema.define(version: 2020_03_05_131754) do
     t.integer "amount_cents", default: 0, null: false
     t.string "checkout_session_id"
     t.integer "total_cents", default: 0, null: false
+    t.bigint "basket_id"
+    t.bigint "user_id"
+    t.bigint "clothe_id"
+    t.index ["basket_id"], name: "index_transactions_on_basket_id"
     t.index ["clothe_id"], name: "index_transactions_on_clothe_id"
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
@@ -78,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_131754) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "baskets", "users"
+  add_foreign_key "transactions", "baskets"
   add_foreign_key "transactions", "clothes"
   add_foreign_key "transactions", "users"
 end
