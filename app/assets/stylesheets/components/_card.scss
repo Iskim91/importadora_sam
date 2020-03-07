@@ -4,12 +4,17 @@
   grid-gap: 28px;
   position: relative;
   margin: 0 auto;
+    a:hover{
+    color: black;
+    text-decoration: none !important;
+  }
 }
 
 .c-card{
   position: relative;
   height: 70vh;
   width: 100%;
+  color: black;
 }
 
 .card-img{
@@ -19,8 +24,13 @@
 }
 
 .card-title{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
 }
 .card-description{
-
+  p{
+    margin-bottom: 4px;
+  }
 }

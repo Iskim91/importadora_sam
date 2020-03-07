@@ -4,10 +4,44 @@
 }
 
 .transaction-info{
-  margin-left: 28px;
+  margin-left: 112px;
   flex-grow: 1;
 }
 
-.transation-body{
+.transaction-body{
+
   display: flex;
+}
+
+.show-container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.transaction-info{
+  padding-top: 4px;
+  h3{
+    display: flex;
+    align-items: center;
+    border-top: 2px solid black;
+    height: 46px;
+    padding: 12px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 0px;
+    padding-left: 8px;
+  }
+  p{
+    display: flex;
+    align-items: center;
+    height: 46px;
+    padding: 12px 0px;
+    margin-bottom: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding-left: 8px;
+  }
+}
+
+.price{
+  display: flex;
+  justify-content: space-between;
 }

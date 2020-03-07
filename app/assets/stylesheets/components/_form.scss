@@ -1,0 +1,28 @@
+#transaction_size{
+  width: 56px;
+  height: 32px;
+}
+#transaction_quantity{
+  width: 64px;
+  height: 32px;
+}
+
+#transaction_color{
+  width: 82px;
+  height: 32px;
+}
+
+#new_transaction{
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  padding: 12px 0px;
+}
+
+.form-group{
+  padding-left: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
