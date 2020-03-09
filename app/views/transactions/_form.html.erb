@@ -1,6 +1,6 @@
 <%= simple_form_for [@clothe, @transaction] do |f| %>
   <%= f.input :size, collection: Transaction::SIZE %>
-  <%= f.input :quantity %>
+  <%= f.input :quantity, input_html: { min: '1'} %>
   <%= f.input :color %>
   <%= f.submit%>
 <% end %>

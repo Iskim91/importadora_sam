@@ -1,15 +1,42 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3">
-      <%# @transaction.clothe.photos.each do |photo| %>
-        <%#= cl_image_tag photo.key, width: '100%' %></div>
-      <%# end %>
-    <div class="col">
-      <h1>Checkout summary</h1>
+<div class="main-container">
+  <table class="payment-table">
+    <tr>
+      <th><h3>Image</h3></th>
+      <th><h3>Name</h3></th>
+      <th><h3>Description</h3></th>
+      <th><h3>Quantity</h3></th>
+      <th><h3>Price</h3></th>
+      <th><h3>Total</h3></th>
+      <th><h3>Options</h3></th>
+    </tr>
+    <tbody>
       <% @basket.transactions.each do |transaction| %>
-        <strong><p>Purchase of </strong><%= transaction.clothe.name %> for <%= humanized_money_with_symbol transaction.total %></p>
+        <tr>
+          <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
+          <td><p><%= transaction.clothe.name %></p></td>
+          <td><p><%= transaction.clothe.description %></p></td>
+          <td>
+            <p>
+              <%= form_for([@basket, transaction], method: :patch) do |f| %>
+                <%= f.number_field :quantity, value: transaction.quantity, min: 1  %>
+                <%= f.submit "Update", class: "main-button"%>
+              <% end %>
+            </p>
+          </td>
+          <td><p><%= transaction.clothe.price %></p></td>
+          <td><p><%= humanized_money_with_symbol transaction.total %></p></td>
+          <td><p><%= form_for([@basket, transaction],method: :delete) do |f| %>
+              <%= f.submit "Delete", data: { confirm: "Are you sure?" } %>
+          <% end %></p></td>
+        </tr>
       <% end %>
-      <p> for a total of<strong> <%= humanized_money_with_symbol @basket.total %></strong></p>
+    </tbody>
+    <tfoot>
+      <tr class="total-table"><td colspan="7"><p>Total: <%= @basket.total %></p></td></tr>
+    </tfoot>
+
+
+  </table>
       <button id="pay" class="btn btn-primary">Pay</button>
       <!-- # Commented for the lecture, remove comments. -->
       <script src="https://js.stripe.com/v3/"></script>
@@ -22,6 +49,5 @@
           });
         });
       </script>
-    </div>
-  </div>
+
 </div>

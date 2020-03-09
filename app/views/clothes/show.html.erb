@@ -12,7 +12,7 @@
       <%#= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>
       <%= simple_form_for([ @clothe, @transaction], class: "transaction-form") do |f| %>
         <%= f.input :size, collection: Transaction::SIZE %>
-        <%= f.input :quantity %>
+        <%= f.input :quantity, input_html: { min: '1'} %>
         <%= f.input :color %>
         <%= f.submit "Add to Basket", class: "second-button" %>
         <%= f.submit "Checkout" , class: "main-button"%>

@@ -1,0 +1,46 @@
+.payment-table{
+  position: relative;
+  width: 70vw;
+  height: 100%;
+  margin-bottom:20px;
+}
+
+th{
+  height: 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+table{
+  text-align: center;
+  position: relative;
+}
+
+tbody{
+  td{
+    height: 100px;
+    position: relative;
+    img{
+      height: 90px;
+      width: 68px;
+      object-fit: cover;
+    }
+    #transaction_quantity{
+      width: 40px;
+      border-radius: 2px;
+    }
+  }
+}
+
+tfoot{
+  td{
+    width: 100%;
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: right;
+  }
+}
+
+
