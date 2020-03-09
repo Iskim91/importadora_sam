@@ -12,7 +12,7 @@
     <tbody>
       <% @basket.transactions.each do |transaction| %>
         <tr>
-          <td><%#= cl_image_tag transaction.clothe.photos.first.key %></td>
+          <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
           <td><p><%= transaction.clothe.name %></p></td>
           <td><p><%= transaction.clothe.description %></p></td>
           <td>
@@ -37,6 +37,7 @@
 
 
   </table>
+    <% if @basket.transactions.count > 0 %>
       <button id="pay" class="btn btn-primary">Pay</button>
       <!-- # Commented for the lecture, remove comments. -->
       <script src="https://js.stripe.com/v3/"></script>
@@ -49,5 +50,5 @@
           });
         });
       </script>
-
+    <% end %>
 </div>
