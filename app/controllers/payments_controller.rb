@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
     @basket.transactions.each do |transaction|
       transaction.total_cents = transaction.quantity * transaction.clothe.price_cents
     end
+    @basket.total = @basket.transactions.map { |transaction| transaction.total }.sum
     authorize @basket
   end
 end
