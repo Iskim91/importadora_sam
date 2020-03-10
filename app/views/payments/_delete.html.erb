@@ -1,0 +1,3 @@
+<%= form_for([@basket, transaction], method: :delete) do |f| %>
+  <%= f.submit "Delete", data: { confirm: "Are you sure?" } %>
+<% end %>

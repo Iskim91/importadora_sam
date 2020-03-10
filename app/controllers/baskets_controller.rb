@@ -10,6 +10,7 @@ class BasketsController < ApplicationController
   end
 
   def payment
+    raise
     @basket = Basket.find(params[:id])
     @basket.total = @basket.transactions.map { |transaction| transaction.amount * transaction.quantity }.sum
     if @basket.transactions.count > 0

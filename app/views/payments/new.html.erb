@@ -1,42 +1,38 @@
 <div class="main-container">
   <table class="payment-table">
-    <tr>
-      <th><h3>Image</h3></th>
-      <th><h3>Name</h3></th>
-      <th><h3>Description</h3></th>
-      <th><h3>Quantity</h3></th>
-      <th><h3>Price</h3></th>
-      <th><h3>Total</h3></th>
-      <th><h3>Options</h3></th>
-    </tr>
+    <thead>
+      <tr>
+        <th><h3>Image</h3></th>
+        <th><h3>Name</h3></th>
+        <th><h3>Description</h3></th>
+        <th><h3>Quantity</h3></th>
+        <th><h3>Price</h3></th>
+        <th><h3>Total</h3></th>
+        <th><h3>Options</h3></th>
+      </tr>
+    </thead>
+
     <tbody>
       <% @basket.transactions.each do |transaction| %>
-        <tr>
-          <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
-          <td><p><%= transaction.clothe.name %></p></td>
-          <td><p><%= transaction.clothe.description %></p></td>
-          <td>
-            <p>
-              <%= form_for([@basket, transaction], method: :patch) do |f| %>
-                <%= f.number_field :quantity, value: transaction.quantity, min: 1  %>
-                <%= f.submit "Update", class: "main-button"%>
-              <% end %>
-            </p>
-          </td>
-          <td><p><%= transaction.clothe.price %></p></td>
-          <td><p><%= humanized_money_with_symbol transaction.total %></p></td>
-          <td><p><%= form_for([@basket, transaction],method: :delete) do |f| %>
-              <%= f.submit "Delete", data: { confirm: "Are you sure?" } %>
-          <% end %></p></td>
-        </tr>
+          <tr>
+            <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
+            <td><p><%= transaction.clothe.name %></p></td>
+            <td><p><%= transaction.clothe.description %></p></td>
+        <%= f.submit %>
+            <td><%= render "payments/update", transaction: transaction %></td>
+            <td><p><%= humanized_money_with_symbol transaction.clothe.price %></p></td>
+            <td><p><%= humanized_money_with_symbol transaction.total %></p></td>
+            <td><%= render "payments/delete", transaction: transaction%></td>
+          </tr>
       <% end %>
     </tbody>
-    <tfoot>
-      <tr class="total-table"><td colspan="7"><p>Total: <%= humanized_money_with_symbol(@basket.total) %></p></td></tr>
-    </tfoot>
 
+      <tfoot>
+        <tr class="total-table"><td colspan="8"><p>Total: <%= humanized_money_with_symbol(@basket.total) %></p></td></tr>
+      </tfoot>
 
   </table>
+
     <% if @basket.transactions.count > 0 %>
       <button id="pay" class="btn btn-primary">Pay</button>
       <!-- # Commented for the lecture, remove comments. -->
