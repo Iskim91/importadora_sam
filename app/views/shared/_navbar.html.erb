@@ -1,44 +1,33 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+<div class="navbar-top">
+  <div class="navbar-container">
+    <% if user_signed_in? %>
+      <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
+    <% else %>
+      <p><%= link_to "Login", new_user_session_path %></p>
     <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li>
-        <%= form_tag clothes_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            placeholder: "Search"
-            %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+    <div class="basket-icon">
+      <%= link_to new_basket_payment_path(@basket) do %>
+        <i class="fas fa-shopping-basket">
+          <p><%= @basket.transactions.count%></p>
+        </i>
       <% end %>
-    </ul>
+    </div>
+  </div>
+
+</div>
+<div class="navbar-bottom">
+  <div class= "navbar-title-container">
+    <%= link_to "SAMMIES", "/" , class: "navbar-title" %>
+    <div class="search-section">
+      <%= form_tag clothes_path, method: :get, class: "search-box" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          placeholder: "Search"
+          %>
+        <%= button_tag :submit do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,37 @@
+.basket-icon{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0px;
+  a:hover{
+    color: black;
+    text-decoration: none;
+  }
+}
+
+
+.fa-shopping-basket{
+  position: relative;
+  height: 32px;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  p{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    border-radius: 50%;
+    width: 16px;
+    background-color: red;
+    font-size: 12px;
+    color: white;
+    top: -6px;
+    right: -6px;
+    margin-bottom: 0px;
+  }
+}

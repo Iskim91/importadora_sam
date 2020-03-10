@@ -3,15 +3,6 @@
   width: 50%;
 }
 
-.transaction-info{
-  margin-left: 112px;
-  flex-grow: 1;
-}
-
-.transaction-body{
-  display: flex;
-}
-
 .show-container{
   width: 90%;
   margin: 0 auto;
@@ -43,4 +34,60 @@
 .price{
   display: flex;
   justify-content: space-between;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .transaction-body{
+    display: block;
+  }
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .transaction-body{
+      display: block;
+    }
+  .show-img{
+   margin: 0 auto;
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .transaction-info{
+    margin-left: 100px;
+    flex-grow: 1;
+  }
+  .transaction-body{
+    display: flex;
+  }
+  .show-img{
+   margin: 0 auto;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .transaction-info{
+    margin-left: 112px;
+    flex-grow: 1;
+  }
+  .transaction-body{
+    display: flex;
+  }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .transaction-body{
+    display: flex;
+  }
+
+  .transaction-info{
+    margin-left: 112px;
+    flex-grow: 1;
+  }
 }

@@ -18,7 +18,6 @@
             <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
             <td><p><%= transaction.clothe.name %></p></td>
             <td><p><%= transaction.clothe.description %></p></td>
-        <%= f.submit %>
             <td><%= render "payments/update", transaction: transaction %></td>
             <td><p><%= humanized_money_with_symbol transaction.clothe.price %></p></td>
             <td><p><%= humanized_money_with_symbol transaction.total %></p></td>

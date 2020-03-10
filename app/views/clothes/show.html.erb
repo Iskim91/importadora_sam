@@ -1,24 +1,23 @@
 <div class="main-container">
-<div class="show-container">
-  <div class="transaction-body">
-    <% @clothe.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, class: "show-img" %>
-    <% end %>
-    <div class="transaction-info">
-      <h3><%= @clothe.name %></h3>
-      <p><%= @clothe.description %></p>
-      <p class="price"><strong>Price:</strong><%= humanized_money_with_symbol(@clothe.price) %></p>
-
-      <%#= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>
-      <%= simple_form_for([ @clothe, @transaction], class: "transaction-form") do |f| %>
-        <%= f.input :size, collection: Transaction::SIZE %>
-        <%= f.input :quantity, input_html: { min: '1'} %>
-        <%= f.input :color %>
-        <%= f.submit "Add to Basket", class: "second-button" %>
-        <%= f.submit "Checkout" , class: "main-button"%>
+  <div class="show-container">
+    <div class="transaction-body">
+      <% @clothe.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "show-img" %>
       <% end %>
-      <%#= link_to "Checkout", payment_basket_path(@basket)%>
+      <div class="transaction-info">
+        <h3><%= @clothe.name %></h3>
+        <p><%= @clothe.description %></p>
+        <p class="price"><strong>Price:</strong><%= humanized_money_with_symbol(@clothe.price) %></p>
+
+        <%#= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>
+        <%= simple_form_for([ @clothe, @transaction], class: "transaction-form") do |f| %>
+          <%= f.input :size, collection: Transaction::SIZE %>
+          <%= f.input :quantity, input_html: { min: '1'} %>
+          <%= f.input :color %>
+          <%= f.submit "Add to Basket", class: "second-button" %>
+          <%= f.submit "Checkout" , class: "main-button"%>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>
