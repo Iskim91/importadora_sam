@@ -3,10 +3,6 @@
   width: 50%;
 }
 
-.show-container{
-  width: 90%;
-  margin: 0 auto;
-}
 
 .transaction-info{
   padding-top: 4px;
@@ -57,13 +53,9 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .transaction-info{
-    margin-left: 100px;
-    flex-grow: 1;
-  }
   .transaction-body{
-    display: flex;
-  }
+      display: block;
+    }
   .show-img{
    margin: 0 auto;
   }

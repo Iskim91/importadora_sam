@@ -21,13 +21,26 @@
     <div class="search-section">
       <%= form_tag clothes_path, method: :get, class: "search-box" do %>
         <%= text_field_tag :query,
-          params[:query],
-          placeholder: "Search"
+          params[:query]
           %>
         <%= button_tag :submit do %>
           <i class="fas fa-search"></i>
         <% end %>
       </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="navbar-top">
+  <div class="navbar-container">
+    <% Clothe::CATEGORY.each do |category| %>
+      <%= form_tag clothes_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "d-none",
+        value: category %>
+        <p><%= submit_tag category, class: "search-category" %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
