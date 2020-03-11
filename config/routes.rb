@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get "/history", to: "users#history"
   resources :baskets do
     resources :payments, only: :new
     resources :transactions, only: [:show, :edit, :destroy, :update]

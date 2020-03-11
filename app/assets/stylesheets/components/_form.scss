@@ -2,15 +2,27 @@
   width: 72px;
   height: 32px;
 }
-#transaction_quantity{
+#transaction_quantity, #clothe_price{
   width: 72px;
   height: 32px;
 }
 
-#transaction_color{
+#transaction_color, #clothe_category{
   width: 90px;
   height: 32px;
 }
+
+#clothe_name, #clothe_sku{
+  width: 150px;
+}
+
+#clothe_description{
+  width: 150px;
+}
+
+// .form-group .clothe_photos{
+//   display: block;
+// }
 
 #new_transaction{
   font-family: 'Oswald', sans-serif;
@@ -19,7 +31,7 @@
   padding: 12px 0px;
 }
 
-.form-group{
+.form-group:not(.clothe_photos){
   position: relative;
   padding-left: 8px;
   display: flex;

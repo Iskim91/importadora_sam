@@ -16,6 +16,7 @@ class BasketPolicy < ApplicationPolicy
   def show?
     user == record.user
   end
+
   def payment?
     user == record.user
   end

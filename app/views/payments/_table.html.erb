@@ -1,0 +1,44 @@
+<table class="payment-table">
+  <thead>
+    <tr>
+      <th><p>Image</p></th>
+      <th><p>Name</p></th>
+      <th><p>Description</p></th>
+      <th><p>Quantity</p></th>
+      <th><p>Price</p></th>
+      <th><p>Total</p></th>
+      <th><p>Options</p></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% basket.transactions.each do |transaction| %>
+        <tr>
+          <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
+          <td><p><%= transaction.clothe.name %></p></td>
+          <td><p><%= transaction.clothe.description %></p></td>
+          <% if basket.status == "pending"%>
+            <td><%= render "payments/update", transaction: transaction %></td>
+          <% else %>
+            <td><%= transaction.quantity %></td>
+          <% end %>
+          <td><p><%= humanized_money_with_symbol transaction.clothe.price %></p></td>
+          <td><p><%= humanized_money_with_symbol transaction.total %></p></td>
+          <% if basket.status == "pending"%>
+            <td><%= render "payments/delete", transaction: transaction%></td>
+          <% else %>
+            <td><%= basket.status %></td>
+          <% end %>
+        </tr>
+    <% end %>
+  </tbody>
+
+    <tfoot>
+      <tr >
+        <td colspan="6"><p>Total:</p>
+        <td class="text-center"><p><%= humanized_money_with_symbol(basket.total) %></p>
+        </td>
+      </tr>
+    </tfoot>
+
+</table>

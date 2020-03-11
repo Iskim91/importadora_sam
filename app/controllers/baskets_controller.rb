@@ -6,13 +6,17 @@ class BasketsController < ApplicationController
 
   def show
     @basket = Basket.find(params[:id])
+    @basket.transactions.each do |transaction|
+      total_cents = transaction.quantity * transaction.clothe.price_cents
+      transaction.update(total_cents: total_cents)
+    end
     authorize @basket
   end
 
   def payment
     @basket = Basket.find(params[:id])
     @basket.total = @basket.transactions.map { |transaction| transaction.amount * transaction.quantity }.sum
-    if @basket.transactions.count > 0
+    if @basket.transactions.positive?
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
@@ -30,4 +34,5 @@ class BasketsController < ApplicationController
       authorize @basket
     end
   end
+
 end

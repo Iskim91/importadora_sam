@@ -1,15 +1,25 @@
 <div class="navbar-top">
   <div class="navbar-container">
-    <% if user_signed_in? %>
-      <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
-    <% else %>
-      <p><%= link_to "Login", new_user_session_path %></p>
-    <% end %>
+    <div class="d-flex ">
+      <% if user_signed_in? %>
+        <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
+      <% else %>
+        <p><%= link_to "Login", new_user_session_path %></p>
+      <% end %>
+      <p><%= link_to "History", history_path, class: "navbar-links ml-3" %></p>
+    </div>
     <div class="basket-icon">
-      <%= link_to new_basket_payment_path(@basket) do %>
-        <i class="fas fa-shopping-basket">
-          <p><%= @basket.transactions.count%></p>
-        </i>
+      <% if current_user.present? %>
+        <%= link_to new_basket_payment_path(@basket) do %>
+          <i class="fas fa-shopping-basket">
+          <% if @basket.transactions.count > 0 %>
+            <p><%= @basket.transactions.count %></p>
+          <% end %>
+          </i>
+        <% end %>
+      <% end %>
+      <% if current_user.admin? %>
+        <%= link_to "Add an Item", new_clothe_path, class: "main-button ml-3"  %>
       <% end %>
     </div>
   </div>

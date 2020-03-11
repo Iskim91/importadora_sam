@@ -1,8 +1,11 @@
-<%= simple_form_for(@clothe) do |f| %>
+<%= simple_form_for @clothe, class: "transaction-form" do |f| %>
   <%= f.input :name %>
+  <%= f.input :sku %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :category, collection: Clothe::CATEGORY %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit%>
+  <%= f.submit class: "main-button" %>
 <% end %>
+
+

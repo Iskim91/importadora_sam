@@ -8,11 +8,6 @@ class ClothesController < ApplicationController
   end
 
   def show
-    if Basket.find_by(status: "pending").nil?
-      @basket = Basket.create(user: current_user)
-    else
-      @basket = Basket.find_by(status: "pending", user: current_user)
-    end
     @transaction = Transaction.new
   end
 

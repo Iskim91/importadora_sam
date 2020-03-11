@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :find_baket
+  before_action :find_basket, if: :current_user?
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   include Pundit
@@ -20,11 +20,15 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
-  def find_baket
-    if Basket.find_by(status: "pending").nil?
+  def find_basket
+    if Basket.find_by(status: "pending", user: current_user).nil?
       @basket = Basket.create(user: current_user)
     else
       @basket = Basket.find_by(status: "pending", user: current_user)
     end
+  end
+
+  def current_user?
+    current_user.present?
   end
 end

@@ -6,22 +6,7 @@
     </li>
   </ul>
   <p>Estimated delivery in <strong>2 business days</strong></p>
-  <div class="c-cards">
-    <% @basket.transactions.each do |transaction| %>
-      <div class="c-card">
-        <% transaction.clothe.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, class: 'card-img' %>
-        <% end %>
-        <div class="card-title">
-          <%= transaction.clothe.name %>
-        </div>
-        <div class="card-description">
-          <p><%= transaction.clothe.description.capitalize %></p>
-          <p><%= humanized_money_with_symbol(transaction.clothe.price) %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render "payments/table", basket: @basket %>
 </div>
 
 

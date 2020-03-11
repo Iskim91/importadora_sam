@@ -5,7 +5,6 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    find_basket
     @clothe = Clothe.find(params[:clothe_id])
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
@@ -39,14 +38,6 @@ class TransactionsController < ApplicationController
   end
 
   private
-
-  def find_basket
-    if Basket.find_by(status: "pending").nil?
-      @basket = Basket.create(user: current_user)
-    else
-      @basket = Basket.find_by(status: "pending", user: current_user)
-    end
-  end
 
   def transaction_redirect
     if params[:commit] == "Checkout"

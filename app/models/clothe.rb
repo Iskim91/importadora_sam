@@ -5,7 +5,7 @@ class Clothe < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 20 }
   validates :price, presence: true
-  CATEGORY = ["T-Shirt", "Shirt", "Pants", "Dress", "Top", "Outer", "Suit", "Sale"]
+  CATEGORY = ["T-Shirt", "Shirt", "Pants", "Dress", "Top", "Outer", "Suit", "Sale", "Sweater"]
   GENDER = %w[Men Women Unisex]
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :gender, inclusion: { in: GENDER }
