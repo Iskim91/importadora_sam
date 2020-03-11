@@ -23,18 +23,28 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction = Transaction.find(params[:id])
-    @transaction.update(params.require(:transaction).permit(:quantity))
     @basket = Basket.find(params[:basket_id])
     authorize @transaction
-    redirect_to payment_basket_path(@basket)
+    if @transaction.update(params.require(:transaction).permit(:quantity))
+      @transaction.total = @transaction.quantity * @transaction.clothe.price
+      @basket.total = @basket.transactions.map { |transaction| transaction.amount * transaction.quantity }.sum
+      respond_to do |format|
+        format.html { redirect_to payment_basket_path(@basket) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
+    end
   end
 
   def destroy
     @basket = Basket.find(params[:basket_id])
     @transaction = Transaction.find(params[:id])
-    @transaction.destroy
     authorize @transaction
-    redirect_to payment_basket_path(@basket)
+    if @transaction.destroy
+      respond_to do |format|
+        format.html { redirect_to payment_basket_path(@basket) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
+      end
+    end
   end
 
   private

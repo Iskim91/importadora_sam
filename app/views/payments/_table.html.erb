@@ -13,7 +13,7 @@
 
   <tbody>
     <% basket.transactions.each do |transaction| %>
-        <tr>
+        <tr data-transaction-id=<%= transaction.id %>>
           <td><%= cl_image_tag transaction.clothe.photos.first.key %></td>
           <td><p><%= transaction.clothe.name %></p></td>
           <td><p><%= transaction.clothe.description %></p></td>
@@ -23,7 +23,7 @@
             <td><%= transaction.quantity %></td>
           <% end %>
           <td><p><%= humanized_money_with_symbol transaction.clothe.price %></p></td>
-          <td><p><%= humanized_money_with_symbol transaction.total %></p></td>
+          <td><p data-total-id=<%=transaction.id%>><%= humanized_money_with_symbol transaction.total %></p></td>
           <% if basket.status == "pending"%>
             <td><%= render "payments/delete", transaction: transaction%></td>
           <% else %>
@@ -36,7 +36,7 @@
     <tfoot>
       <tr >
         <td colspan="6"><p>Total:</p>
-        <td class="text-center"><p><%= humanized_money_with_symbol(basket.total) %></p>
+        <td><p class="text-center" data-basket-id=<%= basket.id %>><%= humanized_money_with_symbol(basket.total) %></p>
         </td>
       </tr>
     </tfoot>
