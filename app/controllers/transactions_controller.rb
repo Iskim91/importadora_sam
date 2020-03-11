@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
     authorize @transaction
     if @transaction.update(params.require(:transaction).permit(:quantity))
       @transaction.total = @transaction.quantity * @transaction.clothe.price
-      @basket.total = @basket.transactions.map { |transaction| transaction.amount * transaction.quantity }.sum
+      basket_total
       respond_to do |format|
         format.html { redirect_to payment_basket_path(@basket) }
         format.js # <-- will render `app/views/reviews/create.js.erb`
@@ -40,6 +40,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
     authorize @transaction
     if @transaction.destroy
+      basket_total
       respond_to do |format|
         format.html { redirect_to payment_basket_path(@basket) }
         format.js # <-- will render `app/views/reviews/create.js.erb`
@@ -48,6 +49,9 @@ class TransactionsController < ApplicationController
   end
 
   private
+  def basket_total
+    @basket.total = @basket.transactions.map { |transaction| transaction.amount * transaction.quantity }.sum
+  end
 
   def transaction_redirect
     if params[:commit] == "Checkout"

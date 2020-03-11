@@ -1,0 +1,7 @@
+<% if @transaction.persisted? %>
+  newForm = document.getElementById('new_transaction');
+  newForm.innerHTML = '<%= j render "transactions/form" , transaction: Transaction.new, clothe: @clothe%>'
+<% else %>
+  newForm = document.getElementById('new_transaction');
+  newForm.innerHTML = '<%= j render "transactions/form" , clothe: @clothe, transaction: @transaction%>'
+<% end %>

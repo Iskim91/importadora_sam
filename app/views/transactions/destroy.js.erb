@@ -1,3 +1,5 @@
 transaction = document.querySelector("[data-transaction-id='<%= @transaction.id %>']");
-transaction.remove();
+basketTotal = document.querySelector("[data-basket-id='<%= @basket.id %>']");
+basketTotal.innerHTML = '<%= humanized_money_with_symbol @basket.total%>'
 
+transaction.remove();
