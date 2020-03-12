@@ -5,24 +5,12 @@ class ClothesController < ApplicationController
 
   def index
     gender = session[:type]
-    if gender == "Men"
-      if params[:query].present?
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
-      else
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
-      end
-    elsif gender == "Women"
-      if params[:query].present?
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
-      else
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
-      end
-    elsif gender == "Unisex"
-      if params[:query].present?
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
-      else
-        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
-      end
+    if params[:query].present? && gender.present?
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
+    elsif gender.present?
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
+    else
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query])
     end
   end
 
@@ -38,6 +26,7 @@ class ClothesController < ApplicationController
   def create
     @clothe = Clothe.new(clothe_params)
     authorize @clothe
+
     if @clothe.save
       redirect_to clothe_path(@clothe)
     else
@@ -66,7 +55,7 @@ class ClothesController < ApplicationController
   private
 
   def clothe_params
-    params.require(:clothe).permit(:name, :category, :description, :price, photos: [])
+    params.require(:clothe).permit(:name, :category, :description, :price, :gender, photos: [])
   end
 
   def find_clothe

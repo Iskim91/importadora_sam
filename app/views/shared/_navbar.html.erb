@@ -4,7 +4,7 @@
       <% if user_signed_in? %>
         <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
       <% else %>
-        <p><%= link_to "Login", new_user_session_path %></p>
+        <p><%= link_to "Login", new_user_session_path, class: "navbar-links" %></p>
       <% end %>
       <p><%= link_to "History", history_path, class: "navbar-links ml-3" %></p>
     </div>
@@ -26,9 +26,9 @@
           <% end %>
           </i>
         <% end %>
-      <% end %>
-      <% if current_user.admin? %>
-        <%= link_to "Add an Item", new_clothe_path, class: "main-button ml-3"  %>
+        <% if current_user.admin? %>
+          <%= link_to "Add an Item", new_clothe_path, class: "main-button ml-3"  %>
+        <% end %>
       <% end %>
     </div>
   </div>

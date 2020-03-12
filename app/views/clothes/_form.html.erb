@@ -3,6 +3,7 @@
   <%= f.input :sku %>
   <%= f.input :description %>
   <%= f.input :price %>
+  <%= f.input :gender, collection: Clothe::GENDER %>
   <%= f.input :category, collection: Clothe::CATEGORY %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit class: "main-button" %>
