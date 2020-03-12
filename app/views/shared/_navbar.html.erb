@@ -7,17 +7,17 @@
         <p><%= link_to "Login", new_user_session_path %></p>
       <% end %>
       <p><%= link_to "History", history_path, class: "navbar-links ml-3" %></p>
-      <% Clothe::GENDER.each do |gender| %>
-      <%= form_tag clothes_path, method: :get do %>
-        <%= text_field_tag :genders,
-        params[:genders],
-        class: "d-none",
-        value: gender %>
-        <p><%= submit_tag gender, class: "search-category" %></p>
-      <% end %>
-    <% end %>
     </div>
     <div class="basket-icon">
+      <% Clothe::GENDER.each do |gender| %>
+        <%= form_tag clothes_path, method: :get do %>
+          <%= text_field_tag :genders,
+          params[:genders],
+          class: "d-none",
+          value: gender %>
+          <p><%= submit_tag gender, class: "search-category" %></p>
+        <% end %>
+      <% end %>
       <% if current_user.present? %>
         <%= link_to new_basket_payment_path(@basket) do %>
           <i class="fas fa-shopping-basket">
