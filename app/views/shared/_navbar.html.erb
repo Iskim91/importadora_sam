@@ -1,4 +1,4 @@
-<div class="navbar-top">
+<div class="navbar-top  navbar1 ">
   <div class="navbar-container">
     <div class="d-flex ">
       <% if user_signed_in? %>
@@ -32,8 +32,8 @@
       <% end %>
     </div>
   </div>
-
 </div>
+
 <div class="navbar-bottom">
   <div class= "navbar-title-container">
     <%= link_to "SAMMIES", "/" , class: "navbar-title" %>
@@ -50,7 +50,7 @@
   </div>
 </div>
 
-<div class="navbar-top">
+<div class="navbar-top navbar2 ">
   <div class="navbar-container">
     <% Clothe::CATEGORY.each do |category| %>
       <%= form_tag clothes_path, method: :get do %>
