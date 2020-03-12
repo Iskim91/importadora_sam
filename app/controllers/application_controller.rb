@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :find_basket, if: :current_user?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_gender
   before_action :authenticate_user!
   include Pundit
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -30,5 +31,9 @@ class ApplicationController < ActionController::Base
 
   def current_user?
     current_user.present?
+  end
+
+  def set_gender
+    session[:type] = params[:genders] if params[:genders]
   end
 end

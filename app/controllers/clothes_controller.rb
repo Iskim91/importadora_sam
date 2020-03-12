@@ -4,7 +4,26 @@ class ClothesController < ApplicationController
   before_action :find_clothe, only: %i[show edit update destroy]
 
   def index
-    @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query])
+    gender = session[:type]
+    if gender == "Men"
+      if params[:query].present?
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
+      else
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
+      end
+    elsif gender == "Women"
+      if params[:query].present?
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
+      else
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
+      end
+    elsif gender == "Unisex"
+      if params[:query].present?
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
+      else
+        @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
+      end
+    end
   end
 
   def show

@@ -25,4 +25,16 @@ file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ix
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
 end
 
+10.times do
+  clothe = Clothe.create!(
+    name: "Flower",
+    description: "Floral dress is very pretty",
+    category: "Dress",
+    gender: "Women",
+    price_cents: 2000,
+    sku: "floral-dress"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/dress.jpeg'), filename: 't-shirt.jpeg')
+end
+
 puts "#{Clothe.count} clothes have been created"
