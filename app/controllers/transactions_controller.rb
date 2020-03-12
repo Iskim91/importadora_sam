@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
     @transaction.amount = @clothe.price
     @transaction.clothe_sku = @clothe.sku
     authorize @transaction
-    if @transaction.save
+    if @transaction.save || params.require(:transaction).values.all?("")
       transaction_redirect
     else
       find_basket
