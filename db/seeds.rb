@@ -12,12 +12,23 @@ Transaction.destroy_all
 
 Clothe.destroy_all
 puts "Creating Clothes"
-file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3456&q=80")
-10.times do
+
+2.times do
   clothe = Clothe.create!(
     name: "Apple",
     description: "this apple is very good",
-    category: "Shirt",
+    category: "T-Shirt",
+    gender: "Men",
+    price_cents: 950,
+    sku: "mountain_shirt"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/t-shirt2.jpeg'), filename: 't-shirt.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Apple",
+    description: "this apple is very good",
+    category: "T-Shirt",
     gender: "Men",
     price_cents: 950,
     sku: "mountain_shirt"
@@ -25,7 +36,7 @@ file = URI.open("https://images.unsplash.com/photo-1564859228273-274232fdb516?ix
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
 end
 
-10.times do
+2.times do
   clothe = Clothe.create!(
     name: "Flower",
     description: "Floral dress is very pretty",
@@ -34,7 +45,96 @@ end
     price_cents: 2000,
     sku: "floral-dress"
     )
-  clothe.photos.attach(io: File.open('app/assets/images/dress.jpeg'), filename: 't-shirt.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/dress.jpeg'), filename: 'dress.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy Jeans",
+    description: "Nice fitted jeans for any season",
+    category: "Pants",
+    gender: "Women",
+    price_cents: 2000,
+    sku: "Pants_1"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/female jeans 2.jpeg'), filename: 'jeans.jpeg')
 end
 
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy Jeans",
+    description: "Nice fitted jeans for any season",
+    category: "Pants",
+    gender: "Women",
+    price_cents: 2000,
+    sku: "Pants_2"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/female jeans 3.jpeg'), filename: 'jeans.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Sweater ",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Men",
+    price_cents: 2000,
+    sku: "Sweater_0"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/malesweater.jpeg'), filename: 'sweater.jpeg')
+end
+
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy sweater",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Men",
+    price_cents: 2000,
+    sku: "Sweater_1"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/malesweater2.jpeg'), filename: 'sweater.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy sweater",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Men",
+    price_cents: 2000,
+    sku: "Sweater_2"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/malesweater3.jpeg'), filename: 'sweater.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy suit",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Men",
+    price_cents: 2000,
+    sku: "Suit_1"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/malesuit.jpeg'), filename: 'suit.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy sweater",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Women",
+    price_cents: 2000,
+    sku: "female_sweater_1"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/sweater.jpeg'), filename: 'sweater.jpeg')
+end
+2.times do
+  clothe = Clothe.create!(
+    name: "Comfy sweater",
+    description: "Nice and soft sweated for the winter",
+    category: "Sweater",
+    gender: "Women",
+    price_cents: 2000,
+    sku: "female_sweater_1"
+    )
+  clothe.photos.attach(io: File.open('app/assets/images/sweater2.jpeg'), filename: 'sweater.jpeg')
+end
 puts "#{Clothe.count} clothes have been created"

@@ -6,7 +6,7 @@
   justify-content: space-between;
   background: white;
   display: flex;
-  height: 5vh;
+  height: 4vh;
   p{
     margin-bottom: 0px;
   }
@@ -42,12 +42,12 @@
   text-decoration: none;
   color: black;
   text-align: center;
+  &:hover{
+    color: inherit;
+    text-decoration: none;
+  }
   p{
     margin-bottom: 0px;
-    &:hover{
-      color: inherit;
-      text-decoration: none;
-    }
   }
 }
 
