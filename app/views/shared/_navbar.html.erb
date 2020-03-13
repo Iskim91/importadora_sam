@@ -42,7 +42,7 @@
       <%= form_tag clothes_path, method: :get, class: "search-box" do %>
         <%= text_field_tag :query
           %>
-        <%= button_tag :submit do %>
+        <%= button_tag :submit, class: "search-btn" do %>
           <i class="fas fa-search"></i>
         <% end %>
       </div>
