@@ -1,7 +1,37 @@
 .main-banner{
   background-image: url("https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2574&q=80");
-  height: 79vh;
   background-size: cover;
   background-position: center;
   position: relative;
+}
+@media (min-width: 100px) and (max-width: 575px) {
+  .main-banner{
+    height: 50vh;
+  }
+}
+
+@media (min-width: 576px) {
+  .main-banner{
+    height: 50vh;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .main-banner{
+    height: 50vh;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .main-banner{
+    height: 75vh;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .main-banner{
+    height: 79vh;
+  }
 }

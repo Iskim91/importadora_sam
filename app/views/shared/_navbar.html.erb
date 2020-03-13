@@ -16,7 +16,7 @@
           params[:genders],
           class: "d-none",
           value: gender %>
-          <p><%= submit_tag gender, class: "search-category" %></p>
+          <p><%= submit_tag gender, class: "navbar-links" %></p>
         <% end %>
       <% end %>
       <% if current_user.present? %>
@@ -58,7 +58,7 @@
         params[:query],
         class: "d-none",
         value: category %>
-        <p><%= submit_tag category, class: "search-category" %></p>
+        <p><%= submit_tag category, class: "navbar-links" %></p>
       <% end %>
     <% end %>
   </div>
