@@ -1,4 +1,4 @@
 <%= form_for([@basket, transaction], method: :patch, remote: true) do |f| %>
-  <%= f.number_field :quantity, value: transaction.quantity, min: 1 %>
-  <%= f.submit "Update", class: "second-button"%>
+  <p><%= f.number_field :quantity, value: transaction.quantity, min: 1 %></p>
+  <p><%= f.submit "Update", class: "second-button"%></p>
 <% end %>

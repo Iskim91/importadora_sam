@@ -1,9 +1,11 @@
 <div class="main-container">
-
+  <h2 class="text-center">Your Cart</h2>
   <%= render "payments/table", basket: @basket %>
 
   <% if @basket.transactions.count > 0 %>
-    <button id="pay" class="main-button">Pay</button>
+    <div class="pay-button">
+      <button id="pay" class="main-button">Pay</button>
+    </div>
     <!-- # Commented for the lecture, remove comments. -->
     <script src="https://js.stripe.com/v3/"></script>
     <script>

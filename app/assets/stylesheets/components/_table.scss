@@ -1,8 +1,8 @@
 .payment-table{
   position: relative;
-  width: 70vw;
+  width: 100%;
   height: 100%;
-  margin-bottom:20px;
+  margin-bottom: 12px;
 }
 
 th{
@@ -25,10 +25,6 @@ tbody{
       width: 68px;
       object-fit: cover;
     }
-    #transaction_quantity{
-      width: 40px;
-      border-radius: 2px;
-    }
   }
 }
 
@@ -42,5 +38,123 @@ tfoot{
     text-align: right;
   }
 }
+
+.payment-table{
+  #transaction_quantity{
+    text-align: center;
+    border-radius: 2px
+  }
+  .edit_transaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .payment-table{
+    #transaction_quantity{
+      margin-right: 2px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .payment-table{
+    #transaction_quantity{
+      margin-right: 4px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .payment-table{
+    #transaction_quantity{
+      margin-right: 4px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .payment-table{
+    #transaction_quantity{
+      margin-right: 4px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .payment-table{
+    #transaction_quantity{
+      margin-right: 4px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
