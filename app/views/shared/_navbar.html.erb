@@ -1,6 +1,7 @@
 <div class="navbar-top  navbar1 ">
   <div class="navbar-container">
     <div class="d-flex ">
+      <p><%= link_to "Home", "/" , class: "mr-3 home-button"%></p>
       <% if user_signed_in? %>
         <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
       <% else %>
