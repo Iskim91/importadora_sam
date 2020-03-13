@@ -1,7 +1,6 @@
 .c-cards{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 28px;
   position: relative;
   margin: 0 auto;
     a:hover{
@@ -9,28 +8,111 @@
     text-decoration: none !important;
   }
 }
-
-.c-card{
-  position: relative;
-  height: 64vh;
-  width: 100%;
-  color: black;
-}
-
-.card-img{
-  height: 80%;
-  width: 100%;
-  object-fit: cover;
-}
-
+  .card-img{
+    width: 100%;
+    object-fit: cover;
+  }
 .card-title{
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   font-family: 'Oswald', sans-serif;
   font-weight: lighter;
-  font-size: 20px;
 }
 .card-description{
   p{
     margin-bottom: 4px;
+  }
+}
+@media (min-width: 100px) and (max-width: 575px) {
+  .c-cards{
+    grid-gap: 10px;
+  }
+  .c-card{
+    position: relative;
+    height: 28vh;
+    width: 100%;
+    color: black;
+  }
+  .card-title{
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .card-img{
+    height: 65%;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .c-cards{
+    grid-gap: 12px;
+  }
+  .c-card{
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    color: black;
+  }
+  .card-title{
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .card-img{
+    height: 65%;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .c-cards{
+    grid-gap: 16px;
+  }
+  .c-card{
+    position: relative;
+    height: 35vh;
+    width: 100%;
+    color: black;
+  }
+  .card-title{
+    font-size: 14px;
+  }
+  .card-img{
+    height: 75%;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .c-cards{
+    grid-gap: 24px;
+  }
+  .c-card{
+    position: relative;
+    height: 35vh;
+    width: 100%;
+    color: black;
+  }
+  .card-title{
+    font-size: 18px;
+  }
+  .card-img{
+    height: 80%;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .c-cards{
+    grid-gap: 28px;
+  }
+  .c-card{
+    position: relative;
+    height: 64vh;
+    width: 100%;
+    color: black;
+  }
+  .card-title{
+    font-size: 20px;
+  }
+  .card-img{
+    height: 80%;
   }
 }

@@ -28,7 +28,7 @@
           </i>
         <% end %>
         <% if current_user.admin? %>
-          <%= link_to "Add an Item", new_clothe_path, class: "main-button ml-3"  %>
+          <p><%= link_to "Add an Item", new_clothe_path, class: "main-button ml-3"  %></p>
         <% end %>
       <% end %>
     </div>
@@ -40,8 +40,7 @@
     <%= link_to "SAMMIES", "/" , class: "navbar-title" %>
     <div class="search-section">
       <%= form_tag clothes_path, method: :get, class: "search-box" do %>
-        <%= text_field_tag :query,
-          params[:query]
+        <%= text_field_tag :query
           %>
         <%= button_tag :submit do %>
           <i class="fas fa-search"></i>

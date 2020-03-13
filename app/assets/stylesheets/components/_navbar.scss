@@ -1,12 +1,12 @@
 .navbar-container{
   position: relative;
-  width: 70%;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
   background: white;
   display: flex;
-  height: 4vh;
+  // height: 4vh;
+  // width: 70%;
   p{
     margin-bottom: 0px;
   }
@@ -23,7 +23,6 @@
     position: relative;
     text-align: center;
     text-decoration: none;
-    font-size: 30px;
     color: #4B4B4B;
     font-family: 'Oswald', sans-serif;
     font-weight: lighter;
@@ -73,5 +72,74 @@
   top: 4.1vh;
   width: 100%;
   z-index: 1;
+}
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-container{
+    width: 95%;
+    height: 4vh;
+  }
+  .navbar-title{
+    font-size: 18px;
+  }
+  .navbar-title-container{
+    width: 95%;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar-container{
+    width: 95%;
+    height: 4vh;
+  }
+  .navbar-title{
+    font-size: 18px;
+  }
+  .navbar-title-container{
+    width: 95%;
+  }
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .navbar-container{
+    width: 95%;
+    height: 4vh;
+  }
+  .navbar-title{
+    font-size: 24px;
+  }
+  .navbar-title-container{
+    width: 95%;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .navbar-container{
+    width: 95%;
+    height: 4vh;
+  }
+  .navbar-title{
+    font-size: 30px;
+  }
+  .navbar-title-container{
+    width: 95%;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .navbar-container{
+    width: 70%;
+    height: 4vh;
+  }
+  .navbar-title{
+    font-size: 30px;
+  }
+  .navbar-title-container{
+    width: 70%;
+  }
 }
 

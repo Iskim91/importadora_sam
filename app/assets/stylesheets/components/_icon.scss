@@ -15,22 +15,103 @@
 .fa-shopping-basket{
   position: relative;
   color: black;
-  font-size: 20px;
   text-decoration: none;
   color: black;
   p{
     position: absolute;
     display: flex;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
-    height: 16px;
-    border-radius: 50%;
-    width: 16px;
     background-color: red;
-    font-size: 12px;
     color: white;
-    top: -6px;
-    right: -6px;
     margin-bottom: 0px;
   }
 }
+@media (min-width: 100px) and (max-width: 575px) {
+  .fa-shopping-basket{
+      font-size: 12px;
+    p{
+      height: 10px;
+      width: 10px;
+      font-size: 9px;
+      top: -4px;
+      right: -3px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .fa-shopping-basket{
+      font-size: 12px;
+    p{
+      height: 10px;
+      width: 10px;
+      font-size: 10px;
+      top: -4px;
+      right: -4px;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .fa-shopping-basket{
+      font-size: 14px;
+    p{
+      height: 10px;
+      width: 10px;
+      font-size: 10px;
+      top: -4px;
+      right: -4px;
+    }
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .fa-shopping-basket{
+      font-size: 18px;
+    p{
+      height: 14px;
+      width: 14px;
+      font-size: 12px;
+      top: -6px;
+      right: -6px;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .fa-shopping-basket{
+      font-size: 18px;
+    p{
+      height: 16px;
+      width: 16px;
+      font-size: 10px;
+      top: -6px;
+      right: -6px;
+    }
+  }
+}
+// @media (min-width: 100px) and (max-width: 575px) {
+
+// }
+
+// @media (min-width: 576px) {
+
+// }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+
+// }
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+
+// }

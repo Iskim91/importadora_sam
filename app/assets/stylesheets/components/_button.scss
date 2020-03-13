@@ -1,17 +1,19 @@
 .main-button{
-  padding: 4px 12px;
+  padding: 0.3vh 0.8vh;
   border-radius: 2px;
   background-color: black;
   color: white;
+  border: none;
   &:hover{
     color: white;
   }
 }
 .second-button{
-  padding: 4px 12px;
+  padding: 0.3vh 0.8vh;
   border-radius: 2px;
   background-color: white;
   color: black;
+  border: 1px solid #474747;
 }
 
 .home-button{
