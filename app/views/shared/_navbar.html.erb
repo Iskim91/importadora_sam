@@ -1,14 +1,24 @@
 <div class="navbar-top  navbar1 ">
   <div class="navbar-container">
-    <div class="d-flex ">
+    <div class="d-flex">
       <p><%= link_to "Home", "/" , class: "mr-3 home-button"%></p>
       <% if user_signed_in? %>
-        <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
+        <div class="dropdown">
+          <button class="dropdown-toggle d-flex align-items-center" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <p>Account</p>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <p><%= link_to "History", history_path, class: "navbar-links" %></p>
+            <p><%= link_to "Edit", edit_user_registration_path, class: "navbar-links" %></p>
+            <p><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-links" %></p>
+          </div>
+        </div>
       <% else %>
         <p><%= link_to "Login", new_user_session_path, class: "navbar-links" %></p>
       <% end %>
-      <p><%= link_to "History", history_path, class: "navbar-links ml-3" %></p>
     </div>
+
+
     <div class="basket-icon">
       <% Clothe::GENDER.each do |gender| %>
         <%= form_tag clothes_path, method: :get do %>
@@ -38,6 +48,11 @@
 <div class="navbar-bottom">
   <div class= "navbar-title-container">
     <%= link_to "SAMMIES", "/" , class: "navbar-title" %>
+  </div>
+</div>
+
+<div class="navbar-top navbar2 ">
+  <div class="navbar-container">
     <div class="search-section">
       <%= form_tag clothes_path, method: :get, class: "search-box" do %>
         <%= text_field_tag :query
@@ -47,11 +62,6 @@
         <% end %>
       </div>
     <% end %>
-  </div>
-</div>
-
-<div class="navbar-top navbar2 ">
-  <div class="navbar-container">
     <% Clothe::CATEGORY.each do |category| %>
       <%= form_tag clothes_path, method: :get do %>
         <%= text_field_tag :query,

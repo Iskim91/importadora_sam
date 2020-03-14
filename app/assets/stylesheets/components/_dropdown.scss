@@ -1,0 +1,22 @@
+.dropdown-menu{
+  z-index:3;
+  padding: 12px;
+  width: 3vw;
+}
+
+.dropdown{
+  .dropdown-toggle{
+    background-color: white;
+    height: 100%;
+    padding: 0px;
+  }
+  button{
+    border: none;
+    &:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+    }
+  }
+}
+.dropdown-toggle::after{
+  content: none;
+}
