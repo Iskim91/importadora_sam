@@ -3,8 +3,12 @@
   width: 50%;
   object-fit: cover;
   margin: 0 auto;
+  display: grid;
+  place-items: center;
 }
-
+.transaction-body{
+  margin-bottom: 100px;
+}
 
 .transaction-info{
   padding-top: 4px;
@@ -13,7 +17,6 @@
     align-items: center;
     border-top: 2px solid black;
     height: 46px;
-    padding: 12px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     margin-bottom: 0px;
     padding-left: 8px;
@@ -39,7 +42,14 @@
   .transaction-body{
     display: block;
   }
-
+  .transaction-info{
+    h3{
+      font-size: 18px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -61,11 +71,19 @@
   .show-img{
    margin: 0 auto;
   }
+    .transaction-info{
+    h3{
+      font-size: 20px;
+    }
+    p{
+      font-size: 16px;
+    }
+  }
 }
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .transaction-info{
-    margin-left: 112px;
+    margin-left: 20px;
     flex-grow: 1;
   }
   .transaction-body{
@@ -81,7 +99,7 @@
   }
 
   .transaction-info{
-    margin-left: 112px;
+    margin-left: 80px;
     flex-grow: 1;
   }
 }
