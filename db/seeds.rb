@@ -1,3 +1,5 @@
+
+require "json"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -137,4 +139,52 @@ end
     )
   clothe.photos.attach(io: File.open('app/assets/images/sweater2.jpeg'), filename: 'sweater.jpeg')
 end
+
+
+puts "creating colors"
+
+
+  hex = %w[0047AB 95F9E3 138A36 FF4B3E FF8552 054A29]
+  i = 0
+6.times do
+  url = open("https://www.thecolorapi.com/id?hex=#{hex[i]}").read
+  color_name = JSON.parse(url)["name"]["value"]
+  color = Color.create(name: color_name, hex: hex[i] )
+  i += 1
+end
+
+
+
+
 puts "#{Clothe.count} clothes have been created"
+puts "#{Color.count} colors have been created"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

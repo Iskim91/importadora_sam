@@ -1,10 +1,11 @@
 class Clothe < ApplicationRecord
-  # belongs_to :users
+  has_and_belongs_to_many :colors
   has_many_attached :photos
   has_many :transactions
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 20 }
   validates :price, presence: true
+
   CATEGORY = ["T-Shirt", "Shirt", "Pants", "Dress", "Top", "Outer", "Suit", "Sweater", "Sale"]
   GENDER = %w[Men Women Unisex]
   validates :category, presence: true, inclusion: { in: CATEGORY }

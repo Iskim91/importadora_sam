@@ -1,7 +1,7 @@
 <%= simple_form_for([ clothe, transaction], class: "transaction-form") do |f| %>
   <%= f.input :size, collection: Transaction::SIZE %>
   <%= f.input :quantity, input_html: { min: '1'} %>
-  <%= f.input :color %>
+  <%= f.input :color, collection: clothe.colors %>
   <%= f.submit "Add to Basket", class: "second-button" %>
   <%= f.submit "Checkout" , class: "main-button"%>
 <% end %>

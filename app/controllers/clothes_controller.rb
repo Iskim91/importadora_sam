@@ -26,8 +26,9 @@ class ClothesController < ApplicationController
   def create
     @clothe = Clothe.new(clothe_params)
     authorize @clothe
-
+    colors = params[:clothe][:color_ids]
     if @clothe.save
+      colors.each { |color| @clothe.colors << Color.find(color.to_i) unless color.empty? }
       redirect_to clothe_path(@clothe)
     else
       render :new
@@ -55,7 +56,7 @@ class ClothesController < ApplicationController
   private
 
   def clothe_params
-    params.require(:clothe).permit(:name, :category, :description, :price, :gender, photos: [])
+    params.require(:clothe).permit(:name, :category, :description, :price, :gender, :color_ids, photos: [])
   end
 
   def find_clothe

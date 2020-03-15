@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_173120) do
+ActiveRecord::Schema.define(version: 2020_03_15_191946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,20 @@ ActiveRecord::Schema.define(version: 2020_03_06_173120) do
     t.string "sku"
   end
 
+  create_table "clothes_colors", id: false, force: :cascade do |t|
+    t.bigint "clothe_id"
+    t.bigint "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothe_id"], name: "index_clothes_colors_on_clothe_id"
+    t.index ["color_id"], name: "index_clothes_colors_on_color_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.string "hex"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,6 +106,8 @@ ActiveRecord::Schema.define(version: 2020_03_06_173120) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "baskets", "users"
+  add_foreign_key "clothes_colors", "clothes"
+  add_foreign_key "clothes_colors", "colors"
   add_foreign_key "transactions", "baskets"
   add_foreign_key "transactions", "clothes"
   add_foreign_key "transactions", "users"
