@@ -8,11 +8,15 @@ require "json"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
+puts "Destroying all Transactions"
 
-puts "Destroying all Clothes"
 Transaction.destroy_all
 
+puts "Destroying all Clothes"
 Clothe.destroy_all
+
+puts "Destroying all Colors"
+Color.destroy_all
 
 
 

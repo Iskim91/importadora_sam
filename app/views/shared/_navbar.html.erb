@@ -72,7 +72,7 @@
         params[:query],
         class: "d-none",
         value: category %>
-        <p><%= submit_tag category, class: "navbar-links" %></p>
+        <p><%= submit_tag category.pluralize, class: "navbar-links" %></p>
       <% end %>
     <% end %>
   </div>
