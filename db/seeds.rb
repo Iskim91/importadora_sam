@@ -13,8 +13,24 @@ puts "Destroying all Clothes"
 Transaction.destroy_all
 
 Clothe.destroy_all
-puts "Creating Clothes"
 
+
+
+puts "creating colors"
+
+
+  hex = %w[0047AB 95F9E3 138A36 FF4B3E FF8552 054A29 B689FF 5C2751 6457A6 76E5FC 4BC0D9 2F92AF 2F568F 3174A0 3B5249 34252F]
+  i = 0
+hex.count.times do
+  url = open("https://www.thecolorapi.com/id?hex=#{hex[i]}").read
+  color_name = JSON.parse(url)["name"]["value"]
+  color = Color.create(name: color_name, hex: hex[i] )
+  i += 1
+end
+
+
+puts "Creating Clothes"
+colors_ids = Color.all.map { |c| c.id }
 2.times do
   clothe = Clothe.create!(
     name: "Apple",
@@ -25,6 +41,9 @@ puts "Creating Clothes"
     sku: "mountain_shirt"
     )
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt2.jpeg'), filename: 't-shirt.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
 2.times do
   clothe = Clothe.create!(
@@ -36,6 +55,9 @@ end
     sku: "mountain_shirt"
     )
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
 
 2.times do
@@ -48,7 +70,11 @@ end
     sku: "floral-dress"
     )
   clothe.photos.attach(io: File.open('app/assets/images/dress.jpeg'), filename: 'dress.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Comfy Jeans",
@@ -59,6 +85,9 @@ end
     sku: "Pants_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/female jeans 2.jpeg'), filename: 'jeans.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
 
 2.times do
@@ -71,7 +100,11 @@ end
     sku: "Pants_2"
     )
   clothe.photos.attach(io: File.open('app/assets/images/female jeans 3.jpeg'), filename: 'jeans.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Sweater ",
@@ -82,6 +115,9 @@ end
     sku: "Sweater_0"
     )
   clothe.photos.attach(io: File.open('app/assets/images/malesweater.jpeg'), filename: 'sweater.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
 
 2.times do
@@ -94,7 +130,11 @@ end
     sku: "Sweater_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/malesweater2.jpeg'), filename: 'sweater.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Comfy sweater",
@@ -105,7 +145,11 @@ end
     sku: "Sweater_2"
     )
   clothe.photos.attach(io: File.open('app/assets/images/malesweater3.jpeg'), filename: 'sweater.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Comfy suit",
@@ -116,7 +160,11 @@ end
     sku: "Suit_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/malesuit.jpeg'), filename: 'suit.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Comfy sweater",
@@ -127,7 +175,11 @@ end
     sku: "female_sweater_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/sweater.jpeg'), filename: 'sweater.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
+
 2.times do
   clothe = Clothe.create!(
     name: "Comfy sweater",
@@ -138,21 +190,10 @@ end
     sku: "female_sweater_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/sweater2.jpeg'), filename: 'sweater.jpeg')
+  rand(3..6).times do
+    clothe.colors << Color.find(colors_ids.sample)
+  end
 end
-
-
-puts "creating colors"
-
-
-  hex = %w[0047AB 95F9E3 138A36 FF4B3E FF8552 054A29]
-  i = 0
-6.times do
-  url = open("https://www.thecolorapi.com/id?hex=#{hex[i]}").read
-  color_name = JSON.parse(url)["name"]["value"]
-  color = Color.create(name: color_name, hex: hex[i] )
-  i += 1
-end
-
 
 
 
