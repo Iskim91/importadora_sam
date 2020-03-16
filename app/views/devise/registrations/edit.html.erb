@@ -11,7 +11,10 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
-
+        <div class="user-address form-group">
+          <label for="user_address">Address: </label>
+          <input name= 'user[address]' type="address" id="user_address">
+        </div>
         <%= f.input :password,
                     hint: "leave it blank if you don't want to change it",
                     required: false,

@@ -15,6 +15,7 @@
         </div>
       <% else %>
         <p><%= link_to "Login", new_user_session_path, class: "navbar-links" %></p>
+        <p><%= link_to "Sign up", new_user_registration_path, class: "navbar-links ml-3" %></p>
       <% end %>
     </div>
 
@@ -26,7 +27,11 @@
           params[:genders],
           class: "d-none",
           value: gender %>
-          <p><%= submit_tag gender, class: "navbar-links" %></p>
+          <% if session[:type] == gender %>
+            <p><%= submit_tag gender, class: "main-button" %></p>
+          <% else %>
+            <p><%= submit_tag gender, class: "navbar-links" %></p>
+          <% end %>
         <% end %>
       <% end %>
       <% if current_user.present? %>
