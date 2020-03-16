@@ -6,6 +6,17 @@
     <div class="transaction-info">
       <h3><%= @clothe.name %></h3>
       <p><%= @clothe.description %></p>
+      <div class="show-colors">
+        <p>Available in: </p>
+        <div class="show-colors-card">
+          <% @clothe.colors.each do |color| %>
+            <div class="show-color-card" style="background-color: #<%= color.hex%>">
+              <p class="show-color-name"><%= color.name %></p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
       <p class="price"><strong>Price:</strong><%= humanized_money_with_symbol(@clothe.price) %></p>
 
       <%#= simple_form_for [@clothe, @transaction], method: :get, url: confirmation_clothe_transaction_path([@clothe, @transaction]) do |f| %>

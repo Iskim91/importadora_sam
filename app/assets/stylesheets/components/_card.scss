@@ -38,6 +38,55 @@
   height: 100%;
 }
 
+.show-colors{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-right: 8px;
+  p{
+    border-bottom: none !important;
+  }
+}
+
+.show-colors-card{
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 6px 0px;
+  grid-gap: 4px;
+  width: 50%;
+  height: 1%;
+ direction: rtl;
+}
+
+
+.show-color-card{
+  position: relative;
+  height: 16px;
+  width: 16px;
+  .show-color-name{
+    position: absolute;
+    visibility: hidden;
+    width: 100px;
+    right: -8px;
+    top: -34px;
+    color: #535353;
+    p{
+      padding: 0px;
+    }
+  }
+  &:hover, &:active{
+    .show-color-name{
+      visibility: visible;
+    }
+  }
+  &:disabled{
+    visibility: hidden;
+  }
+}
+
 @media (min-width: 100px) and (max-width: 575px) {
   .c-cards{
     grid-gap: 10px;
