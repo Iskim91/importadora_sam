@@ -8,4 +8,5 @@ class Transaction < ApplicationRecord
   validates :size, presence: true, inclusion: { in: SIZE }
   monetize :amount_cents, presence: true
   monetize :total_cents
+  QUANTITY = (1..100).to_a
 end
