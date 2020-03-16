@@ -55,7 +55,7 @@
   position: relative;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 6px 0px;
-  grid-gap: 4px;
+  grid-gap: 8px;
   width: 50%;
   height: 1%;
  direction: rtl;
@@ -64,8 +64,8 @@
 
 .show-color-card{
   position: relative;
-  height: 16px;
-  width: 16px;
+  height: 24px;
+  width: 24px;
   .show-color-name{
     position: absolute;
     visibility: hidden;
