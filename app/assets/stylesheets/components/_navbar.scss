@@ -58,6 +58,9 @@
   p{
     margin-bottom: 0px;
   }
+  &:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+  }
 }
 
 
