@@ -4,9 +4,10 @@
     <% @clothes.each do |clothe| %>
       <%= link_to clothe_path(clothe) do %>
         <div class="c-card">
-          <% clothe.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: 'card-img' %>
-          <% end %>
+          <%# clothe.photos.each do |photo| %>
+            <%= render "clothes/carousel", clothe: clothe %>
+            <%#= cl_image_tag clothe.photos.first.key , class: 'card-img' %>
+          <%# end %>
           <div class="colors-card">
             <% clothe.colors.each do |color| %>
               <div class="color-card" style="background-color: #<%= color.hex%>"></div>

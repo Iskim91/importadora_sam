@@ -1,8 +1,10 @@
 <div class="main-container">
   <div class="transaction-body">
-    <% @clothe.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, class: "show-img" %>
-    <% end %>
+    <div class="slider show-slick">
+      <% @clothe.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, class: "show-img"  %>
+      <% end %>
+    </div>
     <div class="transaction-info">
       <h3><%= @clothe.name %></h3>
       <p><%= @clothe.description %></p>
@@ -15,7 +17,6 @@
             </div>
           <% end %>
         </div>
-
       </div>
       <p class="price"><strong>Price:</strong><%= humanized_money_with_symbol(@clothe.price) %></p>
 
@@ -23,4 +24,3 @@
       <%= render "transactions/form",transaction: @transaction, clothe: @clothe %>
     </div>
   </div>
-</div>

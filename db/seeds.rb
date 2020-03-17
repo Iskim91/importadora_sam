@@ -45,6 +45,7 @@ colors_ids = Color.all.map { |c| c.id }
     sku: "mountain_shirt"
     )
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt2.jpeg'), filename: 't-shirt.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/shirt.jpeg'), filename: 't-shirt.jpeg')
   rand(3..6).times do
     clothe.colors << Color.find(colors_ids.sample)
   end
@@ -58,6 +59,7 @@ end
     price_cents: 950,
     sku: "mountain_shirt"
     )
+  clothe.photos.attach(io: File.open('app/assets/images/shirt.jpeg'), filename: 't-shirt.jpeg')
   clothe.photos.attach(io: File.open('app/assets/images/t-shirt.jpeg'), filename: 't-shirt.jpeg')
   rand(3..6).times do
     clothe.colors << Color.find(colors_ids.sample)
@@ -74,6 +76,8 @@ end
     sku: "floral-dress"
     )
   clothe.photos.attach(io: File.open('app/assets/images/dress.jpeg'), filename: 'dress.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/dress2.jpeg'), filename: 'dress.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/dress3.jpeg'), filename: 'dress.jpeg')
   rand(3..6).times do
     clothe.colors << Color.find(colors_ids.sample)
   end
@@ -89,6 +93,7 @@ end
     sku: "Pants_1"
     )
   clothe.photos.attach(io: File.open('app/assets/images/female jeans 2.jpeg'), filename: 'jeans.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/female jeans 4.jpeg'), filename: 'jeans.jpeg')
   rand(3..6).times do
     clothe.colors << Color.find(colors_ids.sample)
   end
@@ -104,6 +109,7 @@ end
     sku: "Pants_2"
     )
   clothe.photos.attach(io: File.open('app/assets/images/female jeans 3.jpeg'), filename: 'jeans.jpeg')
+  clothe.photos.attach(io: File.open('app/assets/images/female jeans 5.jpeg'), filename: 'jeans.jpeg')
   rand(3..6).times do
     clothe.colors << Color.find(colors_ids.sample)
   end
