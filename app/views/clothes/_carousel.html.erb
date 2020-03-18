@@ -1,15 +1,4 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators mb-0">
-    <% i = 0 %>
-    <% clothe.photos.count.times do  %>
-      <% if i = 0 %>
-        <li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>" class="active"></li>
-      <% else %>
-        <li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>"></li>
-      <% end %>
-      <% i += 1 %>
-    <% end %>
-  </ol>
   <div class="carousel-inner">
     <% clothe.photos.each do |photo| %>
       <% if clothe.photos.first == photo %>
@@ -23,5 +12,4 @@
       <% end %>
     <% end %>
   </div>
-
 </div>
