@@ -20,7 +20,7 @@
       </div>
       <p class="price"><strong>Price:</strong><%= humanized_money_with_symbol(@clothe.price) %></p>
       <%= render "transactions/form",transaction: @transaction, clothe: @clothe %>
-      <% if current_user.admin %>
+      <% if current_user.present? && current_user.admin %>
         <%= link_to "Edit",edit_clothe_path(@clothe), class: "second-button"  %>
         <%= link_to "Delete",clothe_path(@clothe), method: :delete,
           data: { confirm: "Are you sure you want to delete this piece of clothe?" },
@@ -36,8 +36,8 @@
         <%= render "details/show", detail: detail, clothe: @clothe  %>
       <% end %>
     </div>
-    <% if current_user.admin %>
+    <% if current_user.present? && current_user.admin %>
       <%= render "details/form", clothe: @clothe, detail: @detail %>
-    <% end %>
+      <% end %>
   </div>
 </div>

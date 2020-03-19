@@ -4,7 +4,7 @@
     <%= cl_image_tag detail.photo.key, class: "show-img" %>
   <% end %>
   <div class="clothe-edit">
-    <% if current_user.admin %>
+    <% if current_user.present? && current_user.admin %>
       <%= link_to "Delete", detail_path(detail),
         method: :delete,
         remote: true,
