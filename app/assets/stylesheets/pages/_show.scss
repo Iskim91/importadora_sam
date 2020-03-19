@@ -6,7 +6,7 @@
 }
 
 .transaction-body{
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 
 .transaction-info{
@@ -37,6 +37,38 @@
   justify-content: space-between;
 }
 
+.show-details{
+  position: relative;
+  text-align: center;
+  margin: 12px 0px;
+  img{
+    margin-top: 12px;
+  }
+  &:hover{
+    .edit-btn{
+      transition: 1s;
+      border-radius: 50%;
+    }
+    .clothe-edit{
+      visibility: visible;
+    }
+  }
+}
+
+.clothe-details{
+  margin-bottom: 50px;
+  h2{
+    text-align: center;
+    border-bottom: 1px solid black;
+  }
+}
+
+.clothe-edit{
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  visibility: hidden;
+}
 
 @media (min-width: 100px) and (max-width: 575px) {
   .transaction-body{

@@ -16,6 +16,7 @@ class ClothesController < ApplicationController
 
   def show
     @transaction = Transaction.new
+    @detail = Detail.new
   end
 
   def new
@@ -51,6 +52,8 @@ class ClothesController < ApplicationController
 
   def destroy
     @clothe.destroy
+    authorize @clothe
+    redirect_to clothes_path
   end
 
   private

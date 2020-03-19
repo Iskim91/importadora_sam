@@ -1,0 +1,5 @@
+<%= simple_form_for [clothe, detail], remote: true do |f| %>
+  <%= f.input :information %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: "main-button" %>
+<% end %>

@@ -2,6 +2,7 @@ class Clothe < ApplicationRecord
   has_and_belongs_to_many :colors
   has_many_attached :photos
   has_many :transactions
+  has_many :details, dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 20 }
   validates :price, presence: true

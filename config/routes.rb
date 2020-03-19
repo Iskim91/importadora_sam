@@ -11,8 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :details, only: :destroy
+
   resources :clothes do
     resources :transactions, only: :create
+    resources :details, only: :create
   end
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

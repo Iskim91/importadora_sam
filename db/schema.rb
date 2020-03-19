@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_150355) do
+ActiveRecord::Schema.define(version: 2020_03_19_120534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 2020_03_16_150355) do
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
 
+  create_table "clothe_detail", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "clothe_id"
+    t.index ["clothe_id"], name: "index_clothe_detail_on_clothe_id"
+  end
+
   create_table "clothes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -70,6 +78,14 @@ ActiveRecord::Schema.define(version: 2020_03_16_150355) do
   create_table "colors", force: :cascade do |t|
     t.string "name"
     t.string "hex"
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.text "information"
+    t.bigint "clothe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clothe_id"], name: "index_details_on_clothe_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -107,8 +123,10 @@ ActiveRecord::Schema.define(version: 2020_03_16_150355) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "baskets", "users"
+  add_foreign_key "clothe_detail", "clothes"
   add_foreign_key "clothes_colors", "clothes"
   add_foreign_key "clothes_colors", "colors"
+  add_foreign_key "details", "clothes"
   add_foreign_key "transactions", "baskets"
   add_foreign_key "transactions", "clothes"
   add_foreign_key "transactions", "users"

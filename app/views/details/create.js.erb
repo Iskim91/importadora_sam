@@ -1,0 +1,18 @@
+<% if @detail.persisted? %>
+  // get html for new detail
+  newDetail = '<%= j render "details/show", detail: @detail %>';
+
+  // append new review to list
+  detail = document.getElementById('detail-list');
+  detail.insertAdjacentHTML('beforeend', newDetail);
+
+  // empty our form
+  newForm = document.getElementById('new_detail');
+  newForm.innerHTML = '<%= j render "details/form" , detail: Detail.new, clothe: @clothe %>'
+
+<% else %>
+
+  newForm = document.getElementById('new_detail');
+  newForm.innerHTML = '<%= j render "details/form" , detail: @detail, clothe: @clothe %>'
+
+<% end %>
