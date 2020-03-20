@@ -1,7 +1,7 @@
 <div class="show-details" data-detail-id=<%= detail.id %>>
   <p><%= simple_format(detail.information) %></p>
   <% if detail.photo.attached? %>
-    <%= cl_image_tag detail.photo.key, class: "show-img" %>
+    <%= cl_image_tag detail.photo.key, class: "detail-image" %>
   <% end %>
   <div class="clothe-edit">
     <% if current_user.present? && current_user.admin %>

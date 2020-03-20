@@ -6,7 +6,7 @@
 }
 
 .transaction-body{
-  margin-bottom: 40px;
+  margin: 70px 0px;
 }
 
 .transaction-info{
@@ -42,7 +42,7 @@
   text-align: center;
   margin: 12px 0px;
   img{
-    margin-top: 12px;
+    margin-top: 24px;
   }
   &:hover{
     .edit-btn{
@@ -57,9 +57,16 @@
 
 .clothe-details{
   margin-bottom: 50px;
+  width: 90%;
+  margin: 0 auto;
   h2{
     text-align: center;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
     border-bottom: 1px solid black;
+  }
+  p{
+    color: #474747;
   }
 }
 
@@ -69,6 +76,13 @@
   top: 50%;
   visibility: hidden;
 }
+
+.detail-image{
+  height: 100%;
+  width: 50vw;
+  object-fit: cover;
+}
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .transaction-body{
@@ -148,7 +162,7 @@
     height: 40%;
   }
   .show-img{
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     object-fit: cover;
   }
@@ -169,7 +183,7 @@
     height: 40%;
   }
   .show-img{
-    height: 60vh;
+    height: 70vh;
     width: 100%;
     object-fit: cover;
   }
