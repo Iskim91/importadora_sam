@@ -6,11 +6,10 @@ class ClothesController < ApplicationController
   def index
     gender = session[:type]
     if current_user.present? && current_user.admin
-      query_statement(gender,"")
+      query_statement(gender, "")
     else
       query_statement(gender, publish: true)
     end
-
   end
 
   def show
