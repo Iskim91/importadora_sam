@@ -4,8 +4,11 @@
   background-color: black;
   color: white;
   border: none;
+    font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
   &:hover{
     color: white;
+    text-decoration: none;
   }
 }
 .second-button{
@@ -17,7 +20,19 @@
   font-family: 'Oswald', sans-serif;
   font-weight: lighter;
   font-size: 16px;
+  &:hover{
+    color: black;
+    text-decoration: none;
+  }
+}
 
+.third-button{
+  padding: 0.3vh 0.8vh;
+  border-radius: 2px;
+  color: black;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
   &:hover{
     color: black;
     text-decoration: none;

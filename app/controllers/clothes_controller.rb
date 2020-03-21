@@ -1,17 +1,16 @@
 class ClothesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   skip_after_action :verify_authorized, only: :show
-  before_action :find_clothe, only: %i[show edit update destroy]
+  before_action :find_clothe, only: %i[show edit update destroy publish unpublish]
 
   def index
     gender = session[:type]
-    if params[:query].present? && gender.present?
-      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender)
-    elsif gender.present?
-      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders])
+    if current_user.present? && current_user.admin
+      query_statement(gender,"")
     else
-      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query])
+      query_statement(gender, publish: true)
     end
+
   end
 
   def show
@@ -50,6 +49,18 @@ class ClothesController < ApplicationController
     end
   end
 
+  def publish
+    @clothe.update(publish: true)
+    authorize @clothe
+    redirect_to clothe_path(@clothe)
+  end
+
+  def unpublish
+    @clothe.update(publish: false)
+    authorize @clothe
+    redirect_to clothe_path(@clothe)
+  end
+
   def destroy
     @clothe.destroy
     authorize @clothe
@@ -64,5 +75,19 @@ class ClothesController < ApplicationController
 
   def find_clothe
     @clothe = policy_scope(Clothe).find(params[:id])
+  end
+
+  def query_statement(gender, publish)
+    if params[:query].present? && gender.present?
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender).where(publish)
+    elsif params[:category].present? && gender.present?
+      @clothes = policy_scope(Clothe).where(gender: gender, category: params[:category]).where(publish)
+    elsif gender.present?
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders]).where(publish)
+    elsif params[:category].present?
+      @clothes = policy_scope(Clothe).where(category: params[:category]).where(publish)
+    else
+      @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(publish)
+    end
   end
 end

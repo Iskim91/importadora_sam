@@ -27,4 +27,12 @@ class ClothePolicy < ApplicationPolicy
   def destroy?
     user.admin
   end
+
+  def publish?
+    user.admin
+  end
+
+  def unpublish?
+    user.admin
+  end
 end

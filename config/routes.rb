@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   resources :details, only: :destroy
 
   resources :clothes do
+    member do
+      patch "/publish", to: "clothes#publish"
+      patch "/unpublish", to: "clothes#unpublish"
+    end
     resources :transactions, only: :create
     resources :details, only: :create
   end
