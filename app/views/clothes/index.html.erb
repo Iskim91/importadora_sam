@@ -4,13 +4,15 @@
     <% @clothes.each do |clothe| %>
       <%= link_to clothe_path(clothe) do %>
         <div class="c-card">
-          <div class="publish-statement">
-            <% if clothe.publish %>
-              <p>Published</p>
-            <% else %>
-              <p>Unpublished</p>
-            <% end %>
-          </div>
+          <% if current_user.present? && current_user.admin %>
+            <div class="publish-statement">
+              <% if clothe.publish %>
+                <p>Published</p>
+              <% else %>
+                <p>Unpublished</p>
+              <% end %>
+            </div>
+          <% end %>
           <%= render "clothes/carousel", clothe: clothe %>
           <div class="colors-card">
             <% clothe.colors.each do |color| %>
@@ -29,4 +31,4 @@
     <% end %>
   </div>
 </div>
-<p><%= @beers%></p>
+
