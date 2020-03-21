@@ -93,12 +93,14 @@
   right: 0px;
   background-color: #D6A802;
   padding: 0.3vh 0.8vh;
-  transition: visibility 1s;
+  z-index: 11;
 }
 
 .c-card{
     &:hover{
-    visibility: visible;
+      .publish-statement{
+        visibility: visible;
+      }
   }
 }
 @media (min-width: 100px) and (max-width: 575px) {
