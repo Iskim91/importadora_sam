@@ -10,6 +10,7 @@ class ClothesController < ApplicationController
     else
       query_statement(gender, publish: true)
     end
+
   end
 
   def show
