@@ -23,7 +23,7 @@ Color.destroy_all
 puts "creating colors"
 
           # white  black orangy dress jeans  green-t b-dress bi-dr red-skirt snw b-swea multi-sweater              .
-  hex = %w[FFFFFF 00000 EC0B2F 5B8078 79A3BD 637E7C DA9583 D3B9B2 D0CBCA  DABEA1 E3C0C8 F1F2F6 D2B5B7 F1DCE2 924B3C  005895 544B59 E1D5CE B46E58 0047AB 95F9E3 138A36 FF4B3E FF8552 054A29 B689FF 5C2751 6457A6 76E5FC 4BC0D9 2F92AF 2F568F 3174A0 3B5249 34252F]
+  hex = %w[FFFFFF 000000 EC0B2F 5B8078 79A3BD 637E7C DA9583 D3B9B2 D0CBCA  DABEA1 E3C0C8 F1F2F6 D2B5B7 F1DCE2 924B3C  005895 544B59 E1D5CE B46E58 0047AB 95F9E3 138A36 FF4B3E FF8552 054A29 B689FF 5C2751 6457A6 76E5FC 4BC0D9 2F92AF 2F568F 3174A0 3B5249 34252F]
   i = 0
 hex.count.times do
   url = open("https://www.thecolorapi.com/id?hex=#{hex[i]}").read
@@ -59,7 +59,7 @@ female_sweater_1 = Clothe.create!(
     name: "Elegant sweater",
     description: "Elegant, fashionable and thick sweater",
     category: "Sweater",
-    gender: "Female",
+    gender: "Women",
     price_cents: 3000,
     sku: "female_sweater_1"
     )
@@ -75,7 +75,7 @@ female_sweater_2 = Clothe.create!(
     name: "Oversized sweater",
     description: "Perfect spring sweater with a bit of shoulder showing",
     category: "Sweater",
-    gender: "Female",
+    gender: "Women",
     price_cents: 2000,
     sku: "female_sweater_2"
     )
@@ -92,7 +92,7 @@ male_sweater_1 = Clothe.create!(
     name: "Oversized male sweater",
     description: "Perfect spring sweater with a bit of shoulder showing",
     category: "Sweater",
-    gender: "Male",
+    gender: "Men",
     price_cents: 1299,
     sku: "male_sweater_1"
     )
@@ -108,9 +108,9 @@ male_sweater_1.colors << Color.find_by(hex: '544B59' )
 
 male_sweater_2 = Clothe.create!(
     name: "North Western Hoodie",
-    description: "Oversized hoodie",
+    description: "Oversized hoodie with North Western print",
     category: "Sweater",
-    gender: "Male",
+    gender: "Men",
     price_cents: 1699,
     sku: "male_sweater_2"
     )
@@ -125,10 +125,10 @@ male_sweater_2.colors << Color.find_by(hex: 'FFFFFF' )
 
 
 male_sweater_3 = Clothe.create!(
-    name: "North Western Hoodie",
-    description: "Oversized hoodie",
+    name: "Pink hipstery sweater",
+    description: "A histery but fashionable hoodie with trendy print",
     category: "Sweater",
-    gender: "Male",
+    gender: "Men",
     price_cents: 1500,
     sku: "male_sweater_3"
     )
@@ -138,7 +138,7 @@ male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.3.j
 male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.4.jpeg'), filename: 'sweater.jpeg')
 detail6 = Detail.create( clothe: male_sweater_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
 detail6.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
-male_sweater_3.colors << Color.find_by(hex: '#F1DCE2' )
+male_sweater_3.colors << Color.find_by(hex: 'F1DCE2' )
 
 
   jean_1 = Clothe.create!(
@@ -218,7 +218,7 @@ male_coat_1 = Clothe.create!(
 
 male_tshirt_1 = Clothe.create!(
   name: "Skull shirt",
-  description: "Cool skull shirt",
+  description: "Refreshing shirt with a skull",
   category: "T-Shirt",
   gender: "Men",
   price_cents: 950,
@@ -258,8 +258,8 @@ male_tshirt_3 = Clothe.create!(
     price_cents: 900,
     sku: "male_tshirt_3"
     )
-  male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shirt-1.1.jpeg'), filename: 't-shirt.jpeg')
-  male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shirt-1.2.jpeg'), filename: 't-shirt.jpeg')
+  male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shit-1.1.jpeg'), filename: 't-shirt.jpeg')
+  male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shit-1.2.jpeg'), filename: 't-shirt.jpeg')
 
   detail13 = Detail.create( clothe: male_tshirt_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
   detail13.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
@@ -269,9 +269,9 @@ male_tshirt_3 = Clothe.create!(
 
 female_tshirt_1 = Clothe.create!(
   name: "Skull shirt",
-  description: "Cool skull shirt",
+  description: "Cool skull shirt with an oversized look",
   category: "T-Shirt",
-  gender: "Men",
+  gender: "Women",
   price_cents: 950,
   sku: "female_tshirt_1"
   )
