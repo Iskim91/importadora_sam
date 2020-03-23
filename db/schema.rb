@@ -47,14 +47,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_141317) do
     t.index ["user_id"], name: "index_baskets_on_user_id"
   end
 
-  create_table "clothe_detail", force: :cascade do |t|
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "clothe_id"
-    t.index ["clothe_id"], name: "index_clothe_detail_on_clothe_id"
-  end
-
   create_table "clothes", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -124,7 +116,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_141317) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "baskets", "users"
-  add_foreign_key "clothe_detail", "clothes"
   add_foreign_key "clothes_colors", "clothes"
   add_foreign_key "clothes_colors", "colors"
   add_foreign_key "details", "clothes"

@@ -48,7 +48,7 @@ unisex_sweater.photos.attach(io: File.open('app/assets/images/Female-sweater-1.1
 unisex_sweater.photos.attach(io: File.open('app/assets/images/Female-sweater-1.2.jpeg'), filename: 'sweater.jpeg')
 unisex_sweater.photos.attach(io: File.open('app/assets/images/Female-sweater-1.3.jpeg'), filename: 'sweater.jpeg')
 detail1 = Detail.create( clothe: unisex_sweater, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail1.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 unisex_sweater.colors << Color.find_by(hex: 'F1F2F6' )
 unisex_sweater.colors << Color.find_by(hex: 'D2B5B7' )
 unisex_sweater.colors << Color.find_by(hex: '924B3C' )
@@ -66,8 +66,8 @@ female_sweater_1 = Clothe.create!(
 female_sweater_1.photos.attach(io: File.open('app/assets/images/Female-sweater-2.1.jpeg'), filename: 'sweater.jpeg')
 female_sweater_1.photos.attach(io: File.open('app/assets/images/Female-sweater-2.2.jpeg'), filename: 'sweater.jpeg')
 female_sweater_1.photos.attach(io: File.open('app/assets/images/Female-sweater-2.3.jpeg'), filename: 'sweater.jpeg')
-detail1 = Detail.create( clothe: female_sweater_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail2 = Detail.create( clothe: female_sweater_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail2.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 female_sweater_1.colors << Color.find_by(hex: 'DABEA1' )
 
 
@@ -83,8 +83,8 @@ female_sweater_2.photos.attach(io: File.open('app/assets/images/Female-sweater-3
 female_sweater_2.photos.attach(io: File.open('app/assets/images/Female-sweater-3.2.jpeg'), filename: 'sweater.jpeg')
 female_sweater_2.photos.attach(io: File.open('app/assets/images/Female-sweater-3.3.jpeg'), filename: 'sweater.jpeg')
 female_sweater_2.photos.attach(io: File.open('app/assets/images/Female-sweater-3.4.jpeg'), filename: 'sweater.jpeg')
-detail1 = Detail.create( clothe: female_sweater_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail3 = Detail.create( clothe: female_sweater_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail3.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 female_sweater_2.colors << Color.find_by(hex: 'D0CBCA' )
 
 
@@ -100,8 +100,8 @@ male_sweater_1.photos.attach(io: File.open('app/assets/images/male-sweater-1.1.j
 male_sweater_1.photos.attach(io: File.open('app/assets/images/male-sweater-1.2.jpeg'), filename: 'sweater.jpeg')
 male_sweater_1.photos.attach(io: File.open('app/assets/images/male-sweater-1.3.jpeg'), filename: 'sweater.jpeg')
 male_sweater_1.photos.attach(io: File.open('app/assets/images/male-sweater-1.4.jpeg'), filename: 'sweater.jpeg')
-detail1 = Detail.create( clothe: male_sweater_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail4 = Detail.create( clothe: male_sweater_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail4.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 male_sweater_1.colors << Color.find_by(hex: '544B59' )
 
 
@@ -118,8 +118,8 @@ male_sweater_2.photos.attach(io: File.open('app/assets/images/male-sweater-2.1.j
 male_sweater_2.photos.attach(io: File.open('app/assets/images/male-sweater-2.2.jpeg'), filename: 'sweater.jpeg')
 male_sweater_2.photos.attach(io: File.open('app/assets/images/male-sweater-2.3.jpeg'), filename: 'sweater.jpeg')
 male_sweater_2.photos.attach(io: File.open('app/assets/images/male-sweater-2.4.jpeg'), filename: 'sweater.jpeg')
-detail1 = Detail.create( clothe: male_sweater_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail5 = Detail.create( clothe: male_sweater_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail5.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 male_sweater_2.colors << Color.find_by(hex: '000000' )
 male_sweater_2.colors << Color.find_by(hex: 'FFFFFF' )
 
@@ -136,8 +136,8 @@ male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.1.j
 male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.2.jpeg'), filename: 'sweater.jpeg')
 male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.3.jpeg'), filename: 'sweater.jpeg')
 male_sweater_3.photos.attach(io: File.open('app/assets/images/male-sweater-3.4.jpeg'), filename: 'sweater.jpeg')
-detail1 = Detail.create( clothe: male_sweater_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail6 = Detail.create( clothe: male_sweater_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail6.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 male_sweater_3.colors << Color.find_by(hex: '#F1DCE2' )
 
 
@@ -155,8 +155,8 @@ male_sweater_3.colors << Color.find_by(hex: '#F1DCE2' )
   jean_1.photos.attach(io: File.open('app/assets/images/jeans-1.4.jpeg'), filename: 'jeans.jpeg')
   jean_1.photos.attach(io: File.open('app/assets/images/jeans-1.5.jpeg'), filename: 'jeans.jpeg')
 
-  detail = Detail.create( clothe: jean_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail7 = Detail.create( clothe: jean_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail7.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 
   jean_1.colors << Color.find_by(hex: '79A3BD' )
 
@@ -175,8 +175,8 @@ male_sweater_3.colors << Color.find_by(hex: '#F1DCE2' )
   jean_2.photos.attach(io: File.open('app/assets/images/jeans-2.5.jpeg'), filename: 'jeans.jpeg')
   jean_2.photos.attach(io: File.open('app/assets/images/jeans-2.6.jpeg'), filename: 'jeans.jpeg')
 
-  detail = Detail.create( clothe: jean_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail8 = Detail.create( clothe: jean_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail8.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 
   jean_2.colors << Color.find_by(hex: '79A3BD' )
 
@@ -194,8 +194,8 @@ male_coat_1 = Clothe.create!(
   male_coat_1.photos.attach(io: File.open('app/assets/images/male-coat-1.2.jpeg'), filename: 'male-coat.jpeg')
   male_coat_1.photos.attach(io: File.open('app/assets/images/male-coat-1.3.jpeg'), filename: 'male-coat.jpeg')
 
-  detail = Detail.create( clothe: male_coat_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail9 = Detail.create( clothe: male_coat_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail9.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 
   male_coat_1.colors << Color.find_by(hex: '544B59' )
 
@@ -211,8 +211,8 @@ male_coat_1 = Clothe.create!(
   male_shirt_1.photos.attach(io: File.open('app/assets/images/male-shirt-1.1.jpeg'), filename: 't-shirt.jpeg')
   male_shirt_1.photos.attach(io: File.open('app/assets/images/male-shirt-1.2.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: male_shirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail10 = Detail.create( clothe: male_shirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail10.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   male_shirt_1.colors << Color.find_by(hex: '005895' )
 
 
@@ -229,8 +229,8 @@ male_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.2.jpeg'),
 male_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.4.jpeg'), filename: 't-shirt.jpeg')
 male_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.3.jpeg'), filename: 't-shirt.jpeg')
 
-detail = Detail.create( clothe: male_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail11 = Detail.create( clothe: male_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail11.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 male_tshirt_1.colors << Color.find_by(hex: '000000' )
 
   male_tshirt_2 = Clothe.create!(
@@ -246,8 +246,8 @@ male_tshirt_1.colors << Color.find_by(hex: '000000' )
   male_tshirt_2.photos.attach(io: File.open('app/assets/images/t-shirt-4.4.jpeg'), filename: 't-shirt.jpeg')
   male_tshirt_2.photos.attach(io: File.open('app/assets/images/t-shirt-4.3.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: male_tshirt_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail12 = Detail.create( clothe: male_tshirt_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail12.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   male_tshirt_2.colors << Color.find_by(hex: '637E7C' )
 
 male_tshirt_3 = Clothe.create!(
@@ -261,8 +261,8 @@ male_tshirt_3 = Clothe.create!(
   male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shirt-1.1.jpeg'), filename: 't-shirt.jpeg')
   male_tshirt_3.photos.attach(io: File.open('app/assets/images/t-shirt-1.2.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: male_tshirt_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail13 = Detail.create( clothe: male_tshirt_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail13.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   male_tshirt_3.colors << Color.find_by(hex: '000000' )
   male_tshirt_3.colors << Color.find_by(hex: 'FFFFFF' )
 
@@ -281,8 +281,8 @@ female_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.7.jpeg'
 female_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.8.jpeg'), filename: 't-shirt.jpeg')
 female_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-2.9.jpeg'), filename: 't-shirt.jpeg')
 
-detail = Detail.create( clothe: female_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+detail14 = Detail.create( clothe: female_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+detail14.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
 female_tshirt_1.colors << Color.find_by(hex: '000000' )
 
   unisex_tshirt_1 = Clothe.create!(
@@ -298,8 +298,8 @@ female_tshirt_1.colors << Color.find_by(hex: '000000' )
   unisex_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-3.3.jpeg'), filename: 't-shirt.jpeg')
   unisex_tshirt_1.photos.attach(io: File.open('app/assets/images/t-shirt-3.4.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: unisex_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail15 = Detail.create( clothe: unisex_tshirt_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail15.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   unisex_tshirt_1.colors << Color.find_by(hex: '000000' )
   unisex_tshirt_1.colors << Color.find_by(hex: 'FFFFFF' )
 
@@ -317,8 +317,8 @@ female_tshirt_1.colors << Color.find_by(hex: '000000' )
   dress_1.photos.attach(io: File.open('app/assets/images/dress-1.2.jpeg'), filename: 't-shirt.jpeg')
   dress_1.photos.attach(io: File.open('app/assets/images/dress-1.3.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: dress_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail16 = Detail.create( clothe: dress_1, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail16.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   dress_1.colors << Color.find_by(hex: 'EC0B2F' )
 
   dress_2 = Clothe.create!(
@@ -332,8 +332,8 @@ female_tshirt_1.colors << Color.find_by(hex: '000000' )
   dress_2.photos.attach(io: File.open('app/assets/images/dress-3.1.jpeg'), filename: 't-shirt.jpeg')
   dress_2.photos.attach(io: File.open('app/assets/images/dress-3.2.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: dress_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail17 = Detail.create( clothe: dress_2, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail17.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   dress_2.colors << Color.find_by(hex: 'DA9583' )
 
   dress_3 = Clothe.create!(
@@ -347,8 +347,8 @@ female_tshirt_1.colors << Color.find_by(hex: '000000' )
   dress_3.photos.attach(io: File.open('app/assets/images/dress-4.1.jpeg'), filename: 't-shirt.jpeg')
   dress_3.photos.attach(io: File.open('app/assets/images/dress-4.2.jpeg'), filename: 't-shirt.jpeg')
 
-  detail = Detail.create( clothe: dress_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
-  detail.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
+  detail18 = Detail.create( clothe: dress_3, information: "Nice outfit in different colors.\r\n\r\nIt is 100% cotton.\r\n\r\nThe materials in this piece are from the best quality\r\n\r\nIt is extremely comfortable and breathable\r\n\r\nThe elasticity will provide full range of movement\r\n")
+  detail18.photo.attach(io: File.open('app/assets/images/cotton.jpeg'), filename: 'cotton.jpeg')
   dress_3.colors << Color.find_by(hex: 'D3B9B2' )
 
 puts "#{Clothe.count} clothes have been created"
