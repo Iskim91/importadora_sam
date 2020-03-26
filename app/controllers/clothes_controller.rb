@@ -81,7 +81,7 @@ class ClothesController < ApplicationController
     if params[:query].present? && gender.present?
       @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:query]).where(gender: gender).where(publish)
     elsif params[:category].present? && gender.present?
-      @clothes = policy_scope(Clothe).where(gender: gender, category: params[:category]).where(publish)
+      @clothes = policy_scope(Clothe).where(gender: [gender, "Unisex"], category: params[:category]).where(publish)
     elsif gender.present?
       @clothes = policy_scope(Clothe).search_by_name_gender_and_category(params[:genders]).where(publish)
     elsif params[:category].present?
